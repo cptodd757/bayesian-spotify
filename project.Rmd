@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(tidyverse)
+library(ggplot2)
 library(rstanarm)
 ```
 
@@ -31,9 +32,34 @@ data <- data %>% mutate(
     artist == "Travis Scott" | artist == "Drake" | artist == "DaBaby" ~ "rap", 
     artist == "Ed Sheeran" | artist == "Ariana Grande" | artist == "Billie Eilish" ~ "pop", 
     artist == "ILLENIUM" | artist == "Diplo" | artist == "Tiësto" ~ "edm"
-  )
+  ),
+  ablum = as.factor(album),
+  artist = as.factor(artist),
+  genre = as.factor(genre),
+  key = as.factor(key),
+  mode = as.factor(mode),
+  time_signature = as.factor(time_signature),
+  title = as.factor(title)
 )
 
 ```
 
+
+```{r}
+data_norm <- data %>% mutate(
+  popularity = popularity / 100
+)
+```
+
+
+Look at popularity between genres (hypothesis: edm lower than.. pop/rap?)
+
+```{r}
+fit <- stan_betareg(popularity ~ tempo + energy + danceability + duration_ms + energy * genre, data = data_norm)
+```
+
+
+```{r}
+summary(fit)
+```
 
