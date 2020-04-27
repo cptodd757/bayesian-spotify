@@ -7,4 +7,33 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Hello, world
+```{r}
+library(tidyverse)
+library(rstanarm)
+```
+
+
+## Analysis
+
+```{r}
+data <- read_csv("data/Travis Scott_Drake_DaBaby_Ed Sheeran_Ariana Grande_Billie Eilish_ILLENIUM_Diplo_Tiësto_2019.csv")
+```
+
+```{r}
+data %>% select("artist") %>% unique()
+```
+
+Merge specific genres that we intend to use into a more broad genre category.
+```{r}
+
+data <- data %>% mutate(
+  genre = case_when(
+    artist == "Travis Scott" | artist == "Drake" | artist == "DaBaby" ~ "rap", 
+    artist == "Ed Sheeran" | artist == "Ariana Grande" | artist == "Billie Eilish" ~ "pop", 
+    artist == "ILLENIUM" | artist == "Diplo" | artist == "Tiësto" ~ "edm"
+  )
+)
+
+```
+
+

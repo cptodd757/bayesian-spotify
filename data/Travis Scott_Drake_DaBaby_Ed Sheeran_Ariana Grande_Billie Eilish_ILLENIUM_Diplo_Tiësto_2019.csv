@@ -1,0 +1,212 @@
+,acousticness,album,artist,danceability,duration_ms,energy,genre,id,instrumentalness,key,liveness,loudness,mode,popularity,speechiness,tempo,time_signature,title,type,valence
+0,0.0567,JACKBOYS,Travis Scott,0.559,244874.0,0.491,rap,7h0d2h0fUmzbs7zeFigJPn,0.0,2.0,0.0992,-6.406,0.0,82.0,0.0346,153.131,4.0,b'HIGHEST IN THE ROOM (feat. ROSAL\xc3\x8dA & Lil Baby) - REMIX',audio_features,0.114
+1,0.9,JACKBOYS,Travis Scott,0.413,46837.0,0.13,rap,62zKJrpbLxz6InR3tGyr7o,0.82,0.0,0.111,-25.166,0.0,68.0,0.0336,123.342,1.0,b'JACKBOYS',audio_features,0.0676
+2,0.071,JACKBOYS,Travis Scott,0.859,244761.0,0.6,rap,6uJONCdr2rC65BNmCnTBWK,0.0,7.0,0.353,-4.63,0.0,79.0,0.301,123.017,4.0,b'GANG GANG',audio_features,0.568
+3,0.253,JACKBOYS,Travis Scott,0.75,157133.0,0.789,rap,7LGWmZaoS7jZJ5tEi9EcDi,0.0,2.0,0.129,-4.578,1.0,76.0,0.108,147.957,4.0,b'HAD ENOUGH (feat. Quavo & Offset)',audio_features,0.673
+4,0.0104,JACKBOYS,Travis Scott,0.802,157712.0,0.591,rap,6gi6y1xwmVszDWkUqab1qw,0.0,8.0,0.196,-4.895,1.0,88.0,0.225,139.864,4.0,b'OUT WEST (feat. Young Thug)',audio_features,0.309
+5,0.0695,JACKBOYS,Travis Scott,0.643,250142.0,0.594,rap,4AO1XhrgJczQ9bNVxdfKQe,1.46e-05,9.0,0.115,-5.191,0.0,78.0,0.0312,118.037,4.0,b'WHAT TO DO? (feat. Don Toliver)',audio_features,0.195
+6,0.135,JACKBOYS,Travis Scott,0.594,181145.0,0.676,rap,40mjsnRjCpycdUw3xhS20g,0.0,2.0,0.163,-5.808,1.0,81.0,0.344,143.477,4.0,b'GATTI',audio_features,0.472
+7,0.104,Antisocial (with Travis Scott) [MK Remix],Travis Scott,0.796,179502.0,0.868,rap,1qf82BwoRe9zdLvyvx7oGP,0.00024,10.0,0.115,-5.774,0.0,63.0,0.0992,124.981,4.0,b'Antisocial (with Travis Scott) - MK Remix',audio_features,0.586
+8,0.383,Antisocial (with Travis Scott) [Steel Banglez & Zeph Ellis Remix],Travis Scott,0.748,188312.0,0.566,rap,72McVYThUxWasGByny8wE5,6.19e-06,10.0,0.236,-10.174,0.0,49.0,0.0998,142.035,4.0,b'Antisocial (with Travis Scott) - Steel Banglez & Zeph Ellis Remix',audio_features,0.701
+9,0.174,Antisocial (with Travis Scott) [Ghali Remix],Travis Scott,0.705,226386.0,0.844,rap,3GUEsjyYsxsgk06bkiyYsa,0.0,5.0,0.366,-4.703,0.0,55.0,0.0683,152.033,4.0,b'Antisocial (with Travis Scott) - Ghali Remix',audio_features,0.934
+10,0.188,Hot (Remix) [feat. Gunna and Travis Scott],Travis Scott,0.845,279907.0,0.631,rap,56AMYGJzxBO6p8v0wEe9de,0.0,7.0,0.0806,-8.206,0.0,79.0,0.216,111.983,4.0,b'Hot (Remix) [feat. Gunna and Travis Scott]',audio_features,0.545
+11,0.0546,HIGHEST IN THE ROOM,Travis Scott,0.598,175721.0,0.427,rap,3eekarcy7kvN4yt5ZFzltW,5.83e-06,7.0,0.21,-8.764,0.0,91.0,0.0317,76.469,4.0,b'HIGHEST IN THE ROOM',audio_features,0.0605
+12,0.133,Antisocial (with Travis Scott),Travis Scott,0.715,161747.0,0.823,rap,7mb1IkA4MKjjh8KHSzOEB2,0.0,5.0,0.361,-5.313,0.0,64.0,0.0495,151.956,4.0,b'Antisocial (with Travis Scott)',audio_features,0.91
+13,0.0247,The London,Travis Scott,0.796,200107.0,0.586,rap,7DcvwMAiqKJQD1rrdfxSDx,0.0,4.0,0.132,-6.946,0.0,80.0,0.147,97.981,4.0,b'The London (feat. J. Cole & Travis Scott)',audio_features,0.179
+14,0.765,Care Package,Drake,0.423,253803.0,0.587,canadian hip hop,1qyFlfPREPbRcS2BNszdYI,0.0,6.0,0.114,-6.635,1.0,62.0,0.529,180.331,4.0,b'Dreams Money Can Buy',audio_features,0.33
+15,0.371,Care Package,Drake,0.631,240957.0,0.788,canadian hip hop,0Tacxc5lDJ8LwiO1pWNSl8,0.000317,4.0,0.108,-7.142,0.0,66.0,0.102,157.769,4.0,b'The Motion',audio_features,0.544
+16,0.205,Care Package,Drake,0.789,235566.0,0.404,canadian hip hop,4n4BflhWjCHIxrI4v7Xt9s,0.0,1.0,0.219,-8.364,1.0,66.0,0.23,122.062,4.0,b'How Bout Now',audio_features,0.472
+17,0.779,Care Package,Drake,0.421,281519.0,0.539,canadian hip hop,4Wjhj0WjkyECccfHVIgaTq,0.0,11.0,0.111,-5.456,0.0,69.0,0.274,89.177,3.0,b'Trust Issues',audio_features,0.523
+18,0.348,Care Package,Drake,0.733,353698.0,0.361,canadian hip hop,4czcw3NVLY0of5hTD7OufN,0.000285,1.0,0.0942,-11.129,1.0,60.0,0.135,94.902,4.0,b'Days in The East',audio_features,0.0361
+19,0.0322,Care Package,Drake,0.673,266325.0,0.81,canadian hip hop,3W3FVHEDetkiRkkGKDmdir,0.0,8.0,0.133,-3.793,1.0,58.0,0.36,166.084,4.0,b'Draft Day',audio_features,0.564
+20,0.115,Care Package,Drake,0.743,240218.0,0.66,canadian hip hop,6C9SwoZ5OrxcvkntgA5t8s,0.0,4.0,0.101,-4.802,0.0,61.0,0.418,192.031,4.0,b'4pm in Calabasas',audio_features,0.549
+21,0.0678,Care Package,Drake,0.555,205264.0,0.88,canadian hip hop,0FnxK9FEAQyPJ284QcieNb,0.0,11.0,0.0723,-4.325,0.0,60.0,0.265,87.195,4.0,b'5 Am in Toronto',audio_features,0.391
+22,0.706,Care Package,Drake,0.477,253562.0,0.501,canadian hip hop,3sMC6vfTTSa0mMAPTwzDVD,5.61e-06,11.0,0.0953,-9.178,0.0,58.0,0.0398,81.376,4.0,b'I Get Lonely',audio_features,0.689
+23,0.603,Care Package,Drake,0.549,294651.0,0.495,canadian hip hop,4alHkxxwAhvoGg3dJCATKV,7.26e-06,6.0,0.0979,-5.661,0.0,55.0,0.133,81.012,4.0,b'My Side',audio_features,0.385
+24,0.0111,Care Package,Drake,0.498,254022.0,0.844,canadian hip hop,2xUHiyGeGrWmmfv7NbDTWC,0.0,2.0,0.102,-2.834,1.0,56.0,0.268,88.435,4.0,b'Jodeci Freestyle (feat. J. Cole)',audio_features,0.282
+25,0.758,Care Package,Drake,0.338,283816.0,0.729,canadian hip hop,6MR5IBSNfDmiwnrlQpVw4w,3.24e-05,6.0,0.18,-6.419,0.0,58.0,0.102,184.174,4.0,b'Club Paradise',audio_features,0.543
+26,0.281,Care Package,Drake,0.508,252884.0,0.748,canadian hip hop,18t8ypY0HYaQuGBxg2KdT2,0.0,1.0,0.168,-4.997,1.0,55.0,0.33,100.414,3.0,b'Free Spirit (feat. Rick Ross)',audio_features,0.225
+27,0.179,Care Package,Drake,0.641,343455.0,0.454,canadian hip hop,27Tqjd2nMW2mIp6Yk1ovwY,0.000116,5.0,0.065,-8.344,0.0,53.0,0.133,78.036,4.0,b'Heat Of The Moment',audio_features,0.302
+28,0.782,Care Package,Drake,0.619,225012.0,0.489,canadian hip hop,56NDFbD0tCUawnqeU2wcvv,0.0,11.0,0.106,-11.25,0.0,62.0,0.46,126.046,4.0,b'Girls Love Beyonc\xc3\xa9 (feat. James Fauntleroy)',audio_features,0.328
+29,0.414,Care Package,Drake,0.505,251240.0,0.494,canadian hip hop,73IE87H0g2MBmdn41lkVto,7.98e-05,10.0,0.105,-8.635,0.0,57.0,0.315,171.978,4.0,b'Paris Morton Music',audio_features,0.141
+30,0.484,Care Package,Drake,0.643,189289.0,0.178,canadian hip hop,3e0ZGE7Gp034iLknjQk4QW,0.0108,4.0,0.122,-8.56,0.0,59.0,0.0588,85.042,4.0,b'Can I',audio_features,0.0674
+31,0.939,So Far Gone,Drake,0.462,176179.0,0.422,canadian hip hop,1v24T2ug4TlssYZvI3aL4O,0.0327,6.0,0.108,-10.381,1.0,60.0,0.175,87.364,4.0,b'Lust For Life',audio_features,0.0853
+32,0.393,So Far Gone,Drake,0.683,290791.0,0.695,canadian hip hop,3XLSlQLJf3Ut0zvMUxnF1h,0.00124,1.0,0.124,-6.798,0.0,61.0,0.0574,135.337,4.0,b'Houstatlantavegas',audio_features,0.406
+33,0.536,So Far Gone,Drake,0.562,375050.0,0.544,canadian hip hop,6NwhtCYkfwWlcR62Ac4E7y,0.0,8.0,0.17,-5.065,1.0,62.0,0.369,159.517,4.0,b'Successful (feat. Trey Songz & Lil Wayne)',audio_features,0.231
+34,0.00427,So Far Gone,Drake,0.79,234176.0,0.731,canadian hip hop,4FDSPGncHRpr6yB8DD4CtI,0.29,9.0,0.157,-4.607,0.0,53.0,0.0327,127.403,4.0,b'Let\xe2\x80\x99s Call It Off (feat. Peter Bjorn and John)',audio_features,0.938
+35,0.579,So Far Gone,Drake,0.749,188189.0,0.476,canadian hip hop,0JaVdpmiex2EP7bBzyKVTa,0.0,11.0,0.1,-11.147,0.0,62.0,0.507,71.937,4.0,b'November 18th',audio_features,0.534
+36,0.186,So Far Gone,Drake,0.591,302492.0,0.846,canadian hip hop,2hcohLIysMxofYziluXCoX,0.0,7.0,0.463,-3.687,1.0,60.0,0.276,94.795,4.0,b'Ignant Shit (feat. Lil Wayne)',audio_features,0.121
+37,0.374,So Far Gone,Drake,0.611,193963.0,0.508,canadian hip hop,3lkkkYc1wBj5l3FVlpqvP6,3.87e-06,11.0,0.168,-5.573,0.0,51.0,0.0741,103.612,4.0,b'A Night Off (feat. Lloyd)',audio_features,0.368
+38,0.632,So Far Gone,Drake,0.462,230717.0,0.773,canadian hip hop,7mPoCVGP752A5DtHf1SKkM,0.0,8.0,0.212,-5.375,1.0,51.0,0.288,86.157,4.0,"b""Say What's Real""",audio_features,0.455
+39,0.0999,So Far Gone,Drake,0.758,230484.0,0.888,canadian hip hop,524wvipGqxPKYWxkjf9y46,0.0336,11.0,0.661,-4.899,0.0,55.0,0.0374,120.392,4.0,b'Little Bit (feat. Lykke Li)',audio_features,0.771
+40,0.19,So Far Gone,Drake,0.395,257690.0,0.922,canadian hip hop,3QLjDkgLh9AOEHlhQtDuhs,0.0,1.0,0.134,-2.176,1.0,66.0,0.375,162.361,4.0,b'Best I Ever Had',audio_features,0.558
+41,0.165,So Far Gone,Drake,0.774,209957.0,0.912,canadian hip hop,2TWSilrWcTrgVKcP8kfEfg,0.0,2.0,0.745,-2.787,0.0,50.0,0.347,150.083,4.0,b'Unstoppable (feat. Santigold & Lil Wayne)',audio_features,0.821
+42,0.00391,So Far Gone,Drake,0.416,382262.0,0.824,canadian hip hop,0q7LGcVSpsIoSbjChtZ8lI,0.0,1.0,0.104,-3.075,1.0,62.0,0.343,85.433,5.0,b'Uptown (feat. Bun B & Lil Wayne)',audio_features,0.417
+43,0.178,So Far Gone,Drake,0.616,262047.0,0.501,canadian hip hop,43iKgGbmfqPLh3mxUlospI,1.2e-05,5.0,0.105,-5.722,0.0,52.0,0.24,94.554,4.0,b'Sooner Than Later',audio_features,0.506
+44,0.209,So Far Gone,Drake,0.49,139575.0,0.507,canadian hip hop,4i3GraNMzBKze1WsVl38DS,0.00104,2.0,0.119,-6.205,0.0,54.0,0.0849,147.037,3.0,"b""Bria's Interlude (feat. Omarion)""",audio_features,0.237
+45,0.819,So Far Gone,Drake,0.471,243724.0,0.784,canadian hip hop,6MlGqWzDiLkZ0vmAEsisEk,1.13e-05,11.0,0.107,-8.25,0.0,50.0,0.883,160.833,4.0,b'The Calm',audio_features,0.258
+46,0.988,So Far Gone,Drake,0.397,174398.0,0.0906,canadian hip hop,6hHKFReuQR9VQp39ev43wY,0.856,5.0,0.344,-21.655,1.0,48.0,0.054,185.167,4.0,b'Outro (feat. Chilly Gonzales)',audio_features,0.136
+47,0.631,So Far Gone,Drake,0.399,213492.0,0.491,canadian hip hop,4XTXamS1g4g93jPxyuFJJ6,0.0,6.0,0.171,-8.992,1.0,59.0,0.0714,94.542,3.0,b'Brand New',audio_features,0.356
+48,0.0185,So Far Gone,Drake,0.333,332530.0,0.859,canadian hip hop,3SnXwQUrvSacFziUYXTNKY,0.0,6.0,0.22,-2.286,1.0,58.0,0.148,86.882,5.0,b'Congratulations',audio_features,0.125
+49,0.0342,KIRK,DaBaby,0.862,172800.0,0.685,nc hip hop,77KMttn3Lic7ZQKDlPqp8v,0.0,0.0,0.204,-7.699,0.0,75.0,0.242,100.024,4.0,b'INTRO',audio_features,0.672
+50,0.0104,KIRK,DaBaby,0.801,115610.0,0.693,nc hip hop,3e39X4Q74yJzsYUEeyf4ws,0.0,0.0,0.376,-4.002,1.0,67.0,0.323,164.084,4.0,b'OFF THE RIP',audio_features,0.602
+51,0.189,KIRK,DaBaby,0.769,159715.0,0.787,nc hip hop,6Ozh9Ok6h4Oi1wUSLtBseN,0.0,11.0,0.129,-3.909,1.0,88.0,0.367,126.77,4.0,b'BOP',audio_features,0.836
+52,0.113,KIRK,DaBaby,0.768,144935.0,0.652,nc hip hop,0fySG6A6qLE8IvDpayb5bM,0.0,1.0,0.107,-2.708,0.0,85.0,0.307,154.187,4.0,b'VIBEZ',audio_features,0.777
+53,0.0242,KIRK,DaBaby,0.815,183145.0,0.76,nc hip hop,2TsD9kSbgYx5fSNRsoNURE,0.0,6.0,0.203,-4.632,1.0,69.0,0.331,81.537,4.0,b'POP STAR (feat. Kevin Gates)',audio_features,0.729
+54,0.0387,KIRK,DaBaby,0.676,214893.0,0.664,nc hip hop,0WoAkdHmgPmEXfiBox1flk,0.0,8.0,0.0475,-4.435,1.0,65.0,0.343,161.867,4.0,"b'GOSPEL (feat. Chance The Rapper, Gucci Mane & YK Osiris)'",audio_features,0.838
+55,0.243,KIRK,DaBaby,0.733,191920.0,0.574,nc hip hop,3GX2hFAekmSduZzcS52OnR,0.0,1.0,0.231,-6.409,0.0,65.0,0.266,159.987,4.0,b'iPHONE (with Nicki Minaj)',audio_features,0.305
+56,0.0794,KIRK,DaBaby,0.816,136366.0,0.582,nc hip hop,2FvD20Z8aoWIePi7PoN8sG,5.84e-06,8.0,0.0916,-4.141,1.0,85.0,0.341,160.004,4.0,b'TOES (feat. Lil Baby & Moneybagg Yo)',audio_features,0.542
+57,0.0552,KIRK,DaBaby,0.943,139500.0,0.654,nc hip hop,7vxGCUPJhe0fXfBkwVPFcP,0.0,1.0,0.0893,-5.175,1.0,65.0,0.274,100.091,4.0,b'REALLY (feat. Stunna 4 Vegas)',audio_features,0.608
+58,0.0744,KIRK,DaBaby,0.884,143226.0,0.783,nc hip hop,0O7mJ0noFBLn8MMUJrFaF1,0.0,1.0,0.12,-2.388,1.0,64.0,0.294,124.052,4.0,b'PROLLY HEARD',audio_features,0.929
+59,0.0273,KIRK,DaBaby,0.874,216678.0,0.714,nc hip hop,1CCDIow4pPYyJYzhtTUYz2,0.0,5.0,0.356,-4.946,1.0,70.0,0.233,130.046,4.0,b'RAW SHIT (feat. Migos)',audio_features,0.85
+60,0.339,KIRK,DaBaby,0.836,143296.0,0.747,nc hip hop,0pegcONe6MuDQRoPCtCBRf,0.0,1.0,0.0739,-3.368,0.0,64.0,0.136,84.435,4.0,b'THERE HE GO',audio_features,0.758
+61,0.00245,KIRK,DaBaby,0.914,153863.0,0.655,nc hip hop,4LH1gsNA3wUS6QKkGZoJN8,0.0,6.0,0.0817,-5.333,0.0,65.0,0.294,143.975,4.0,b'XXL',audio_features,0.705
+62,0.00366,Baby On Baby,DaBaby,0.802,118360.0,0.738,nc hip hop,6B4KWBeFdHrpVezjTqggWr,0.0,0.0,0.223,-5.287,0.0,65.0,0.167,151.07,4.0,b'Taking It Out',audio_features,0.484
+63,0.0608,Baby On Baby,DaBaby,0.876,163320.0,0.662,nc hip hop,2gwkD6igEhQbDQegRCcdoB,0.0,2.0,0.127,-6.482,0.0,84.0,0.426,75.445,4.0,b'Suge',audio_features,0.844
+64,0.128,Baby On Baby,DaBaby,0.755,141827.0,0.772,nc hip hop,3WyRgi8CzQnhzO0xw79tTS,0.0,6.0,0.157,-5.585,1.0,77.0,0.4,132.906,4.0,b'Goin Baby',audio_features,0.678
+65,0.102,Baby On Baby,DaBaby,0.92,204573.0,0.622,nc hip hop,0SsTkfOhM7e87trwjEqBQN,0.0,9.0,0.35,-6.388,1.0,65.0,0.246,119.962,4.0,b'Pony',audio_features,0.815
+66,0.012,Baby On Baby,DaBaby,0.837,68147.0,0.691,nc hip hop,3yXP1unIs1X9U5FbEarv7e,0.0,9.0,0.191,-6.407,1.0,57.0,0.337,162.114,4.0,b'Deal Wit It',audio_features,0.675
+67,0.0219,Baby On Baby,DaBaby,0.852,157693.0,0.73,nc hip hop,7f1zjZG77S891Uv4O68yfk,0.0,1.0,0.336,-5.803,1.0,76.0,0.0579,92.506,4.0,b'Baby Sitter (feat. Offset)',audio_features,0.394
+68,0.0566,Baby On Baby,DaBaby,0.664,192773.0,0.672,nc hip hop,7uxbabRF4omY1MhmIgaZ6Y,0.0,6.0,0.279,-5.306,1.0,58.0,0.209,139.887,4.0,b'Celebrate (feat. Rich Homie Quan)',audio_features,0.657
+69,0.213,Baby On Baby,DaBaby,0.772,133213.0,0.659,nc hip hop,6uIpf2e5PrB0ZMufi0AWpL,0.0,2.0,0.317,-5.388,1.0,60.0,0.283,143.716,4.0,b'Joggers (feat. Stunna 4 Vegas)',audio_features,0.815
+70,0.0492,Baby On Baby,DaBaby,0.824,102840.0,0.859,nc hip hop,1N7CHs4eGjgr3gjyUgq75Y,0.0,2.0,0.28,-5.668,1.0,63.0,0.302,77.973,4.0,b'Carpet Burn',audio_features,0.903
+71,0.104,Baby On Baby,DaBaby,0.87,186867.0,0.606,nc hip hop,2gjPbUsttk6GqJOUAh9WzN,0.0,1.0,0.155,-6.713,1.0,59.0,0.147,150.154,3.0,b'Best Friend (feat. Rich The Kid)',audio_features,0.605
+72,0.204,Baby On Baby,DaBaby,0.8,114373.0,0.749,nc hip hop,5U8sc8et1PiuDQfIQ2J98a,0.0,8.0,0.113,-4.943,1.0,57.0,0.33,151.851,4.0,b'Tupac',audio_features,0.961
+73,0.00333,Baby On Baby,DaBaby,0.903,166333.0,0.668,nc hip hop,2ky7vgodn1YedpeS00lUqt,0.0,8.0,0.111,-7.881,1.0,57.0,0.24,145.058,4.0,b'Backend',audio_features,0.532
+74,0.025,Baby On Baby,DaBaby,0.873,151600.0,0.682,nc hip hop,6aYi4lYcAohNhlNWsbWfy0,0.0,11.0,0.0685,-5.869,0.0,59.0,0.377,157.943,4.0,b'Walker Texas Ranger',audio_features,0.799
+75,0.0579,Death (feat. DaBaby),DaBaby,0.802,172196.0,0.82,nc hip hop,6YfTl5YupXOQBKiJJLrxcw,0.0,10.0,0.149,-5.969,0.0,75.0,0.146,164.005,4.0,b'Death (feat. DaBaby)',audio_features,0.613
+76,0.124,No.6 Collaborations Project,Ed Sheeran,0.64,197867.0,0.648,pop,70eFcWOvlMObDhURTqT4Fv,0.0,5.0,0.0802,-8.113,0.0,81.0,0.187,92.977,4.0,b'Beautiful People (feat. Khalid)',audio_features,0.548
+77,0.148,No.6 Collaborations Project,Ed Sheeran,0.857,204467.0,0.621,pop,4vUmTMuQqjdnvlZmAH61Qk,0.0,9.0,0.0865,-6.376,0.0,85.0,0.0824,97.986,4.0,b'South of the Border (feat. Camila Cabello & Cardi B)',audio_features,0.668
+78,0.214,No.6 Collaborations Project,Ed Sheeran,0.746,206187.0,0.787,pop,4wuCQX7JvAZLlrcmH4AeZF,0.0,4.0,0.0669,-6.373,1.0,70.0,0.12,95.005,4.0,b'Cross Me (feat. Chance the Rapper & PnB Rock)',audio_features,0.607
+79,0.219,No.6 Collaborations Project,Ed Sheeran,0.885,189733.0,0.762,pop,1AI7UPw3fgwAFkvAlZWhE0,0.0,8.0,0.162,-5.513,0.0,74.0,0.216,138.059,4.0,b'Take Me Back to London (feat. Stormzy)',audio_features,0.605
+80,0.762,No.6 Collaborations Project,Ed Sheeran,0.565,243267.0,0.242,pop,0VsGaRXR5WAzpu51unJTis,9.3e-06,2.0,0.285,-8.367,1.0,72.0,0.0318,81.657,4.0,b'Best Part of Me (feat. YEBBA)',audio_features,0.237
+81,0.0912,No.6 Collaborations Project,Ed Sheeran,0.798,219947.0,0.675,pop,0hVXuCcriWRGvwMV1r5Yn9,0.0,6.0,0.0894,-5.041,1.0,82.0,0.0442,101.956,4.0,"b""I Don't Care (with Justin Bieber)""",audio_features,0.842
+82,0.133,No.6 Collaborations Project,Ed Sheeran,0.715,161747.0,0.823,pop,1DhRbox3xkceP64k3JeYfW,0.0,5.0,0.361,-5.313,0.0,73.0,0.0495,151.956,4.0,b'Antisocial (with Travis Scott)',audio_features,0.91
+83,0.135,No.6 Collaborations Project,Ed Sheeran,0.852,207760.0,0.666,pop,0AtP8EkGPn6SwxKDaUuXec,0.0,11.0,0.798,-6.923,0.0,75.0,0.184,91.046,4.0,b'Remember The Name (feat. Eminem & 50 Cent)',audio_features,0.726
+84,0.112,No.6 Collaborations Project,Ed Sheeran,0.665,150787.0,0.68,pop,1Bdptrvb7nQkq8kCw3siE9,0.0,2.0,0.096,-4.899,1.0,67.0,0.29,91.67,4.0,b'Feels (feat. Young Thug & J Hus)',audio_features,0.69
+85,0.253,No.6 Collaborations Project,Ed Sheeran,0.627,197093.0,0.594,pop,5T03itPFOPGGkvVPvPiyla,0.0,7.0,0.373,-8.306,1.0,68.0,0.0478,101.008,4.0,b'Put It All on Me (feat. Ella Mai)',audio_features,0.389
+86,0.333,No.6 Collaborations Project,Ed Sheeran,0.747,200733.0,0.649,pop,2qRN7PWiHRLprw4FpDeI9N,0.0,10.0,0.172,-6.218,0.0,71.0,0.219,88.011,4.0,b'Nothing On You (feat. Paulo Londra & Dave)',audio_features,0.84
+87,0.314,No.6 Collaborations Project,Ed Sheeran,0.469,204507.0,0.631,pop,3FHXUqaUer9o231Je1zxIN,0.0,8.0,0.14,-6.569,0.0,67.0,0.0853,91.418,4.0,"b""I Don't Want Your Money (feat. H.E.R.)""",audio_features,0.763
+88,0.467,No.6 Collaborations Project,Ed Sheeran,0.778,212307.0,0.59,pop,4vIKzWqtn44umal5jXq4wE,0.0,8.0,0.0902,-5.548,1.0,67.0,0.27,97.995,4.0,b'1000 Nights (feat. Meek Mill & A Boogie Wit da Hoodie)',audio_features,0.515
+89,0.11,No.6 Collaborations Project,Ed Sheeran,0.726,190293.0,0.731,pop,5d1rmWWF1725tnYjq6rMDB,3.21e-06,1.0,0.0928,-6.304,0.0,62.0,0.159,170.125,4.0,b'Way To Break My Heart (feat. Skrillex)',audio_features,0.43
+90,0.000245,No.6 Collaborations Project,Ed Sheeran,0.631,209120.0,0.796,pop,7hvO2qCwJVZxiyoA7c9i5d,0.0115,1.0,0.38,-5.35,1.0,65.0,0.0401,92.469,4.0,b'BLOW (with Chris Stapleton & Bruno Mars)',audio_features,0.596
+91,0.13,South of the Border (feat. Camila Cabello & Cardi B) [Andy Jarvis Remix],Ed Sheeran,0.805,188230.0,0.835,pop,1EJgymgJHcjSOGSHcYaxvW,5.03e-06,0.0,0.365,-4.603,1.0,62.0,0.0896,125.027,4.0,b'South of the Border (feat. Camila Cabello & Cardi B) - Andy Jarvis Remix',audio_features,0.722
+92,0.884,k bye for now (swt live),Ariana Grande,0.239,43251.0,0.408,dance pop,5SyCD1ic378B4rYWhDmuvo,0.0318,6.0,0.68,-13.623,1.0,57.0,0.06,72.138,3.0,b'raindrops (an angel cried) - live',audio_features,0.161
+93,0.158,k bye for now (swt live),Ariana Grande,0.498,213068.0,0.836,dance pop,67kQ3UW7saqCFqB54BVKKI,6.59e-06,10.0,0.971,-5.224,0.0,60.0,0.0669,144.882,4.0,b'god is a woman - live',audio_features,0.279
+94,0.0392,k bye for now (swt live),Ariana Grande,0.674,212164.0,0.816,dance pop,12s87E3EVHMYZQyr9mXsUi,1.56e-05,3.0,0.342,-4.387,0.0,58.0,0.0416,137.976,4.0,b'bad idea - live',audio_features,0.501
+95,0.0162,k bye for now (swt live),Ariana Grande,0.593,223872.0,0.737,dance pop,56feSEETtLwNjY5Xz8XbKI,1.55e-05,5.0,0.975,-5.102,0.0,58.0,0.0475,84.87,4.0,"b""break up with your girlfriend, i'm bored - live""",audio_features,0.238
+96,0.321,k bye for now (swt live),Ariana Grande,0.705,177913.0,0.554,dance pop,2I2HYr4FLb6LPfdgcKxK2J,9.26e-06,10.0,0.978,-9.628,0.0,56.0,0.0551,80.042,4.0,b'r.e.m - live',audio_features,0.611
+97,0.155,k bye for now (swt live),Ariana Grande,0.713,174604.0,0.707,dance pop,4OR2KU2qCnREBsSwwJ4PBn,2.12e-06,1.0,0.956,-5.947,0.0,57.0,0.0403,112.929,4.0,b'be alright - live',audio_features,0.366
+98,0.158,k bye for now (swt live),Ariana Grande,0.655,174000.0,0.7,dance pop,1Bvxlmt3CtZTyls2IJQ38T,1.25e-06,4.0,0.877,-4.242,1.0,56.0,0.0789,119.835,4.0,b'sweetener - live',audio_features,0.529
+99,0.0879,k bye for now (swt live),Ariana Grande,0.758,125631.0,0.883,dance pop,7bfnkOya2SV8LLTsYmRQJR,3.54e-05,7.0,0.24,-3.989,0.0,55.0,0.0608,114.021,4.0,b'successful - live',audio_features,0.736
+100,0.0251,k bye for now (swt live),Ariana Grande,0.515,260519.0,0.865,dance pop,1FYLqciy2MckeKgTvOCawO,5.59e-05,6.0,0.971,-4.065,0.0,56.0,0.161,158.053,4.0,b'side to side - live',audio_features,0.372
+101,0.226,k bye for now (swt live),Ariana Grande,0.443,226850.0,0.739,dance pop,6va6SjWz457IOZidBppAhz,0.000378,9.0,0.961,-6.509,1.0,58.0,0.209,139.829,4.0,b'7 rings - live',audio_features,0.146
+102,0.196,k bye for now (swt live),Ariana Grande,0.448,83785.0,0.71,dance pop,6Q4JJnjX00q8O10OliHhjS,0.0,1.0,0.638,-5.095,0.0,55.0,0.0578,104.024,4.0,b'love me harder - live',audio_features,0.273
+103,0.0454,k bye for now (swt live),Ariana Grande,0.322,208294.0,0.874,dance pop,1edP751qQSUaA1vo7Hva3w,2.27e-06,8.0,0.945,-2.893,1.0,58.0,0.2,98.089,4.0,b'breathin - live',audio_features,0.171
+104,0.699,k bye for now (swt live),Ariana Grande,0.317,174295.0,0.474,dance pop,1IVnvJN9oC3pDYv9qpAnj7,0.0,7.0,0.945,-6.314,0.0,56.0,0.0661,76.592,4.0,b'needy - live',audio_features,0.318
+105,0.109,k bye for now (swt live),Ariana Grande,0.395,205586.0,0.735,dance pop,5BYts42mYfuullBbELoaEV,1.66e-06,9.0,0.353,-4.559,1.0,55.0,0.226,83.143,4.0,b'fake smile - live',audio_features,0.177
+106,0.145,k bye for now (swt live),Ariana Grande,0.717,138359.0,0.768,dance pop,1TCEZgYrPjc2G5sBYJciuq,4.3e-06,7.0,0.0741,-4.554,1.0,54.0,0.137,104.973,3.0,b'make up - live',audio_features,0.472
+107,0.0407,k bye for now (swt live),Ariana Grande,0.613,99405.0,0.802,dance pop,7MjS7SoRzn8VXajFdV3t04,0.0,7.0,0.92,-4.473,1.0,54.0,0.171,79.514,4.0,b'right there - live',audio_features,0.271
+108,0.0673,k bye for now (swt live),Ariana Grande,0.767,81401.0,0.92,dance pop,6FmBKZxA3K1Ycr9spEeI15,1.96e-06,1.0,0.375,-3.445,1.0,54.0,0.0997,104.9,4.0,"b""you'll never know - live""",audio_features,0.598
+109,0.0501,k bye for now (swt live),Ariana Grande,0.743,134875.0,0.85,dance pop,1qfOSlQohddqAOGl3f8snd,0.0,11.0,0.942,-4.686,1.0,54.0,0.0595,98.026,4.0,b'break your heart right back - live',audio_features,0.657
+110,0.207,k bye for now (swt live),Ariana Grande,0.648,185000.0,0.621,dance pop,4jkikgyrlBMR4Fj3d1s4jT,2.73e-05,6.0,0.918,-5.831,1.0,56.0,0.179,76.002,4.0,b'nasa - live',audio_features,0.371
+111,0.257,k bye for now (swt live),Ariana Grande,0.358,203337.0,0.639,dance pop,6dB14UPKgEDLTp38BIKk6N,0.0,7.0,0.964,-4.938,1.0,55.0,0.0382,103.289,3.0,b'tattooed heart - live',audio_features,0.314
+112,0.273,k bye for now (swt live),Ariana Grande,0.615,162876.0,0.945,dance pop,5qmcKqCKRb4EFwRTsndXNe,0.0,9.0,0.962,-5.607,0.0,54.0,0.259,101.502,4.0,b'only 1 - live',audio_features,0.45
+113,0.158,k bye for now (swt live),Ariana Grande,0.603,188787.0,0.611,dance pop,0ao5xnzWNAt0dZFF6v4Sct,0.0,1.0,0.944,-4.177,1.0,56.0,0.0322,111.02,4.0,b'goodnight n go - live',audio_features,0.158
+114,0.333,k bye for now (swt live),Ariana Grande,0.639,207000.0,0.625,dance pop,5XkiYqfFAXsXG4V2mGZET8,0.0,7.0,0.398,-4.932,1.0,53.0,0.0509,100.015,4.0,b'get well soon - live',audio_features,0.482
+115,0.0421,k bye for now (swt live),Ariana Grande,0.673,150000.0,0.783,dance pop,58T204WTLWAs34lOvheS28,0.238,0.0,0.352,-6.997,1.0,53.0,0.0521,136.822,4.0,b'in my head interlude - live',audio_features,0.324
+116,0.0419,k bye for now (swt live),Ariana Grande,0.239,131928.0,0.676,dance pop,2Hk1xo2ZrysHtBQMmZvg8U,6.98e-06,10.0,0.551,-4.868,0.0,55.0,0.0613,73.373,4.0,b'everytime - live',audio_features,0.198
+117,0.00339,k bye for now (swt live),Ariana Grande,0.762,130072.0,0.882,dance pop,0mQVABspENyHvpVqRpnkxJ,0.000326,7.0,0.277,-3.814,1.0,52.0,0.072,99.044,4.0,b'the light is coming - live',audio_features,0.597
+118,0.073,k bye for now (swt live),Ariana Grande,0.59,179232.0,0.871,dance pop,6rvHjRpnRhzQVeu8I5CqHp,0.000128,6.0,0.364,-3.665,0.0,54.0,0.113,109.869,4.0,b'into you - live',audio_features,0.234
+119,0.136,k bye for now (swt live),Ariana Grande,0.479,107322.0,0.591,dance pop,3HUJw4KvL5baIwuh0wWPoh,1.16e-06,7.0,0.463,-9.129,1.0,52.0,0.0508,102.174,4.0,b'my heart belongs to daddy - live',audio_features,0.551
+120,0.086,k bye for now (swt live),Ariana Grande,0.407,233447.0,0.826,dance pop,5H7d8isXFW779pCK7lo4KT,1.21e-06,4.0,0.979,-3.443,0.0,55.0,0.0926,133.942,3.0,b'dangerous woman - live',audio_features,0.277
+121,0.00926,k bye for now (swt live),Ariana Grande,0.626,151583.0,0.769,dance pop,1LD1TFK08cFUBPmhi3FRAA,0.00097,3.0,0.95,-3.512,1.0,54.0,0.0513,130.044,4.0,b'break free - live',audio_features,0.255
+122,0.467,k bye for now (swt live),Ariana Grande,0.652,233417.0,0.791,dance pop,32VSdGCv8wkAjUkVha9YBf,1.45e-06,0.0,0.967,-4.623,1.0,55.0,0.0655,121.922,4.0,b'no tears left to cry - live',audio_features,0.383
+123,0.027,k bye for now (swt live),Ariana Grande,0.43,389728.0,0.811,dance pop,6AZaeRAPYnf5nKwV7HpSlQ,0.0034,1.0,0.95,-5.511,1.0,54.0,0.101,107.036,4.0,"b'thank u, next - live'",audio_features,0.223
+124,0.378,"thank u, next",Ariana Grande,0.729,212267.0,0.475,dance pop,39LmTF9RgyakzSYX8txrow,0.0,8.0,0.12,-4.985,1.0,76.0,0.0364,62.52,3.0,b'imagine',audio_features,0.371
+125,0.78,"thank u, next",Ariana Grande,0.647,171573.0,0.309,dance pop,1TEL6MlSSVLSdhOSddidlJ,7.41e-06,7.0,0.202,-7.948,0.0,75.0,0.0366,87.045,4.0,b'needy',audio_features,0.195
+126,0.451,"thank u, next",Ariana Grande,0.747,182000.0,0.458,dance pop,4uTvPEr01pjTbZgl7jcKBD,0.0,6.0,0.252,-6.891,1.0,74.0,0.303,75.029,4.0,b'NASA',audio_features,0.47
+127,0.0815,"thank u, next",Ariana Grande,0.758,216893.0,0.665,dance pop,2hloaUoRonYssMuqLCBLTX,0.000157,2.0,0.216,-5.188,0.0,73.0,0.0774,151.976,4.0,b'bloodline',audio_features,0.643
+128,0.329,"thank u, next",Ariana Grande,0.45,208880.0,0.619,dance pop,3wFLWP0FcIqHK1wb1CPthQ,0.0,9.0,0.319,-7.412,1.0,72.0,0.372,83.3,4.0,b'fake smile',audio_features,0.427
+129,0.0268,"thank u, next",Ariana Grande,0.847,267107.0,0.579,dance pop,5Il6Oe7lr5XM7A0cWbVQtr,0.0545,1.0,0.102,-5.314,1.0,72.0,0.0719,137.998,4.0,b'bad idea',audio_features,0.569
+130,0.0844,"thank u, next",Ariana Grande,0.671,140693.0,0.714,dance pop,27356GVuMPFWiJSZCragoM,1.48e-06,7.0,0.0568,-5.373,1.0,69.0,0.21,105.137,3.0,b'make up',audio_features,0.477
+131,0.418,"thank u, next",Ariana Grande,0.287,271467.0,0.364,dance pop,2vdBo4ALPYbHRUPKgtE5iC,1.8e-05,9.0,0.185,-8.295,1.0,72.0,0.0306,103.777,4.0,b'ghostin',audio_features,0.11
+132,0.173,"thank u, next",Ariana Grande,0.662,222947.0,0.6,dance pop,4T652DlATVHe0jdLKaN3Bw,0.000137,0.0,0.109,-6.402,1.0,73.0,0.0703,134.979,4.0,b'in my head',audio_features,0.331
+133,0.592,"thank u, next",Ariana Grande,0.778,178627.0,0.317,dance pop,6ocbgoVGwYJhOv1GgI9NsF,0.0,1.0,0.0881,-10.732,0.0,88.0,0.334,140.048,4.0,b'7 rings',audio_features,0.327
+134,0.229,"thank u, next",Ariana Grande,0.717,207320.0,0.653,dance pop,3e9HZxeyfWwjeyPAMmWSSQ,0.0,1.0,0.101,-5.634,1.0,86.0,0.0658,106.966,4.0,"b'thank u, next'",audio_features,0.412
+135,0.0421,"thank u, next",Ariana Grande,0.726,190440.0,0.554,dance pop,4kV4N9D1iKVxx1KLvtTpjS,0.0,5.0,0.106,-5.29,0.0,82.0,0.0917,169.999,4.0,"b""break up with your girlfriend, i'm bored""",audio_features,0.335
+136,0.768,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.0,13578.0,0.278,electropop,0rQtoQXQfwpDW0c7Fw1NeM,0.0,1.0,0.669,-21.63,1.0,20.0,0.0,0.0,0.0,b'!!!!!!!',audio_features,0.0
+137,0.328,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.701,194088.0,0.425,electropop,2Fxmhks0bxGSBdJ92vM42m,0.13,7.0,0.1,-10.965,1.0,93.0,0.375,135.128,4.0,b'bad guy',audio_features,0.562
+138,0.751,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.521,243725.0,0.125,electropop,4QIo4oxwzzafcBWkKjDpXY,0.00207,9.0,0.265,-17.832,1.0,82.0,0.239,111.554,4.0,b'xanny',audio_features,0.0528
+139,0.462,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.678,180953.0,0.533,electropop,3XF5xLJHOQQRbWya6hBp7d,0.219,4.0,0.139,-10.485,1.0,84.0,0.186,150.455,4.0,b'you should see me in a crown',audio_features,0.323
+140,0.283,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.726,168840.0,0.444,electropop,6IRdLKIyS4p7XNiP8r6rsx,0.143,8.0,0.177,-8.922,0.0,84.0,0.372,185.044,4.0,b'all the good girls go to hell',audio_features,0.569
+141,0.39,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.853,221543.0,0.351,electropop,3Fj47GNK2kUF0uaEDgXLaD,9.38e-06,7.0,0.752,-10.198,1.0,84.0,0.241,118.028,4.0,b'wish you were gay',audio_features,0.282
+142,0.978,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.367,196077.0,0.111,electropop,43zdsphuZLzwA9k4DJhU0I,3.97e-05,4.0,0.0897,-14.084,1.0,89.0,0.0972,82.642,4.0,"b""when the party's over""",audio_features,0.198
+143,0.698,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.735,173202.0,0.235,electropop,6X29iaaazwho3ab7GNue5r,0.00604,3.0,0.107,-13.239,1.0,79.0,0.315,62.446,4.0,b'8',audio_features,0.462
+144,0.35,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.939,179889.0,0.305,electropop,3Tc57t9l2O8FwQZtQOvPXK,0.000169,8.0,0.105,-10.952,0.0,81.0,0.354,100.029,4.0,b'my strange addiction',audio_features,0.563
+145,0.74,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.905,193143.0,0.389,electropop,4SSnFejRGlZikf02HLewEF,0.162,8.0,0.106,-14.505,1.0,85.0,0.332,120.046,4.0,b'bury a friend',audio_features,0.196
+146,0.724,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.855,156371.0,0.423,electropop,7qEKqBCD2vE5vIBsrUitpD,0.469,5.0,0.0896,-15.044,0.0,81.0,0.0585,120.02,4.0,b'ilomilo',audio_features,0.572
+147,0.935,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.319,242652.0,0.0561,electropop,0tMSssfxAL2oV8Vri0mFHE,0.00384,0.0,0.388,-23.023,1.0,81.0,0.045,79.764,3.0,b'listen before i go',audio_features,0.082
+148,0.952,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.421,291796.0,0.131,electropop,6CcJMwBtXByIz4zQLzFkKc,0.00453,0.0,0.109,-18.435,1.0,85.0,0.0382,137.446,4.0,b'i love you',audio_features,0.12
+149,0.837,"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",Billie Eilish,0.153,119410.0,0.138,electropop,3LgWsmilsrWXiPYQFRD0T7,0.55,6.0,0.254,-21.877,0.0,77.0,0.0503,74.318,3.0,b'goodbye',audio_features,0.0503
+150,0.902,everything i wanted,Billie Eilish,0.704,245426.0,0.225,electropop,3ZCTVFBt2Brf31RLEnCkWJ,0.657,6.0,0.106,-14.454,0.0,93.0,0.0994,120.006,4.0,b'everything i wanted',audio_features,0.243
+151,0.252,bad guy (with Justin Bieber),Billie Eilish,0.67,194840.0,0.453,electropop,3yNZ5r3LKfdmjoS3gkhUCT,0.33,0.0,0.117,-11.265,1.0,81.0,0.295,135.055,4.0,b'bad guy (with Justin Bieber)',audio_features,0.68
+152,0.853,WHEN I WAS OLDER (Music Inspired By The Film ROMA),Billie Eilish,0.696,270520.0,0.332,electropop,7tGEAA1f8MydT7eVbbO9Zy,0.433,6.0,0.0848,-12.834,1.0,73.0,0.0425,150.13,4.0,b'WHEN I WAS OLDER - Music Inspired By The Film ROMA',audio_features,0.0628
+153,0.86,ASCEND,ILLENIUM,0.164,33158.0,0.0774,edm,5NMa4Z4rtWqyt6VN7h2bpo,0.849,11.0,0.146,-15.546,0.0,51.0,0.0402,182.19,5.0,b'I Care - Intro',audio_features,0.0384
+154,0.0463,ASCEND,ILLENIUM,0.506,235263.0,0.744,edm,5Cevkgj9FyNRFIwY3xSCn8,6.62e-06,9.0,0.52,-3.605,1.0,63.0,0.042,76.056,4.0,b'Hold On (with Georgia Ku)',audio_features,0.396
+155,0.012,ASCEND,ILLENIUM,0.643,216668.0,0.603,edm,3LxG9HkMMFP0MZuiw3O2rF,0.0,2.0,0.118,-5.416,1.0,70.0,0.0311,144.01,4.0,b'Good Things Fall Apart (with Jon Bellion)',audio_features,0.42
+156,0.091,ASCEND,ILLENIUM,0.487,252913.0,0.621,edm,4HQwS0eDQ57zOER0fp7DoD,0.0,2.0,0.132,-4.676,1.0,57.0,0.0333,140.04,4.0,b'That\xe2\x80\x99s Why (with GOLDN)',audio_features,0.178
+157,0.083,ASCEND,ILLENIUM,0.358,248000.0,0.896,edm,1kQ0aj0mnjd5xKrYKLZo64,0.0014,4.0,0.372,-4.547,0.0,51.0,0.159,75.192,4.0,b'Blood (with Foy Vance)',audio_features,0.1
+158,0.396,ASCEND,ILLENIUM,0.275,221398.0,0.657,edm,6f1oG9hTx3NETgV6q4rkw5,0.000148,11.0,0.305,-3.9,1.0,59.0,0.0431,169.638,4.0,b'Take You Down',audio_features,0.219
+159,0.0656,ASCEND,ILLENIUM,0.437,238558.0,0.688,edm,1ucn3B55IQQcQ8PPHcFtDS,0.0,5.0,0.156,-5.315,1.0,53.0,0.0364,130.114,4.0,b'All Together (with OEKIIN)',audio_features,0.193
+160,0.342,ASCEND,ILLENIUM,0.582,230000.0,0.681,edm,17Efhyf4A96n0EFXKeB7Ya,0.0,5.0,0.186,-6.138,1.0,68.0,0.0458,95.995,4.0,b'Crashing (feat. Bahari)',audio_features,0.273
+161,0.148,ASCEND,ILLENIUM,0.545,198286.0,0.668,edm,6tPnAqe6UNeKMoOrruBSEi,0.0,7.0,0.372,-3.962,0.0,57.0,0.0906,149.988,4.0,b'Broken Ones (with Anna Clendening)',audio_features,0.249
+162,0.514,ASCEND,ILLENIUM,0.343,223405.0,0.321,edm,3cBbeY7DCckx8eEQ70AM5y,0.000505,7.0,0.232,-9.53,0.0,52.0,0.0357,119.096,5.0,b'Every Piece Of Me (with Echos)',audio_features,0.44
+163,0.12,ASCEND,ILLENIUM,0.294,209893.0,0.505,edm,1SyjFJu9xk5CpYD6bm1tjl,0.0,3.0,0.0977,-8.106,1.0,14.0,0.042,85.332,1.0,b'Takeaway (with ILLENIUM & Lennon Stella)',audio_features,0.357
+164,0.679,ASCEND,ILLENIUM,0.532,210423.0,0.571,edm,4pioeMejnqa4T3QAEqwVA3,0.0,1.0,0.109,-6.291,1.0,60.0,0.041,144.912,4.0,b'Sad Songs (& Said The Sky with Annika Wells)',audio_features,0.475
+165,0.131,ASCEND,ILLENIUM,0.487,295890.0,0.694,edm,61sor95BL63MCvZYgKK8KM,1.46e-05,10.0,0.106,-4.049,0.0,54.0,0.0397,145.919,4.0,b'Pray (feat. Kameron Alexander)',audio_features,0.287
+166,0.198,ASCEND,ILLENIUM,0.404,220730.0,0.806,edm,70YPzqSEwJvAIQ6nMs1cjY,0.0,2.0,0.114,-4.75,1.0,77.0,0.0496,148.036,4.0,b'In Your Arms (with X Ambassadors)',audio_features,0.112
+167,0.047,ASCEND,ILLENIUM,0.52,277317.0,0.881,edm,6YeUIhr2njkkCBaBBrRK9j,0.000855,6.0,0.331,-4.249,0.0,55.0,0.116,180.013,4.0,b'Gorgeous (& Blanke with Bipolar Sunshine)',audio_features,0.291
+168,0.985,ASCEND,ILLENIUM,0.275,41290.0,0.523,edm,68YoXtGeFsiKNnQfXtdwCv,0.456,9.0,0.331,-10.406,1.0,53.0,0.0568,69.428,3.0,b'Angel - Lonely Prelude',audio_features,0.296
+169,0.597,ASCEND,ILLENIUM,0.451,270968.0,0.402,edm,2tPzQueGEjxjmBvJrYe02u,3.77e-06,9.0,0.294,-4.63,1.0,59.0,0.0286,92.93,4.0,b'Lonely (with Chandler Leighton)',audio_features,0.129
+170,0.000296,Good Things Fall Apart (with Jon Bellion) [Travis Barker Remix],ILLENIUM,0.492,209954.0,0.882,edm,5EppQn6XXssuFcgtP637jT,3.22e-05,2.0,0.324,-4.212,1.0,56.0,0.039,75.011,4.0,b'Good Things Fall Apart (with Jon Bellion) [Travis Barker Remix]',audio_features,0.398
+171,0.0803,Hard To Say Goodbye (feat. Chloe Angelides),ILLENIUM,0.546,197100.0,0.764,edm,50DKBnjijGJ2d0WV5nqNTS,8.84e-06,5.0,0.0971,-4.641,1.0,61.0,0.053,152.994,4.0,b'Hard To Say Goodbye (feat. Chloe Angelides)',audio_features,0.355
+172,0.000187,Takeaway - The Remixes,ILLENIUM,0.468,180000.0,0.83,edm,16QhpULFOW9fE2yvXsJV6A,0.0,8.0,0.0875,-3.301,1.0,65.0,0.0727,126.835,4.0,b'Takeaway - Andrew Rayel Remix',audio_features,0.162
+173,0.0592,Takeaway - The Remixes,ILLENIUM,0.683,214547.0,0.899,edm,3DVc4VCjFaBAZF9OFquQqV,1.13e-06,10.0,0.177,-4.863,0.0,61.0,0.112,120.974,4.0,b'Takeaway - Sondr Remix',audio_features,0.373
+174,0.003,Takeaway - The Remixes,ILLENIUM,0.887,154667.0,0.733,edm,13nC6hGXl0rH8YQ5TMShNF,0.00543,7.0,0.0679,-3.871,0.0,35.0,0.0461,122.032,4.0,b'Takeaway - Ship Wrek Remix',audio_features,0.687
+175,0.136,Takeaway - The Remixes,ILLENIUM,0.515,213253.0,0.696,edm,4xkm03zMAQXHc0QHl0V2Rm,0.0,3.0,0.238,-7.323,1.0,40.0,0.034,99.985,4.0,b'Takeaway - Pilton Remix',audio_features,0.528
+176,0.00281,Takeaway - The Remixes,ILLENIUM,0.624,158707.0,0.741,edm,76EI5put5PkU2FD2rJKegT,8.6e-06,8.0,0.098,-6.612,1.0,37.0,0.0791,124.099,4.0,b'Takeaway - Owen Norton Remix',audio_features,0.347
+177,0.018,Takeaway - The Remixes,ILLENIUM,0.619,196360.0,0.69,edm,3bhuHxmAB7VWWlvbYFJd13,0.0,0.0,0.666,-5.438,0.0,35.0,0.0493,110.0,4.0,b'Takeaway - DCB Remix',audio_features,0.452
+178,0.763,Good Things Fall Apart (with Jon Bellion) - Stripped,ILLENIUM,0.575,208438.0,0.314,edm,4siZLgCKM0IKnD1ek6Bt4d,0.0,2.0,0.101,-7.048,1.0,60.0,0.0344,150.459,4.0,b'Good Things Fall Apart (with Jon Bellion) - Stripped',audio_features,0.653
+179,0.083,Blood (with Foy Vance),ILLENIUM,0.358,248000.0,0.896,edm,3Fk8bs3cn1To3RirJk4Q8e,0.0014,4.0,0.372,-4.547,0.0,41.0,0.159,75.192,4.0,b'Blood (with Foy Vance)',audio_features,0.1
+180,0.00522,Good Things Fall Apart (with Jon Bellion) [Tiësto's Big Room Remix],ILLENIUM,0.563,247385.0,0.81,edm,6m8SIT10j41SPpPFOknTmP,0.0,2.0,0.0846,-2.921,1.0,66.0,0.0522,129.975,4.0,"b""Good Things Fall Apart (with Jon Bellion) [Ti\xc3\xabsto's Big Room Remix]""",audio_features,0.495
+181,0.0128,Good Things Fall Apart (with Jon Bellion),ILLENIUM,0.643,216668.0,0.594,edm,6pooRNiLyYpxZeIA5kJ5EX,0.0,2.0,0.118,-5.453,1.0,73.0,0.0318,144.033,4.0,b'Good Things Fall Apart (with Jon Bellion)',audio_features,0.442
+182,0.0087,Pray (ft. Kameron Alexander) - Remixes,ILLENIUM,0.484,228659.0,0.619,edm,6BzTAVtYRHbEx6gQ1yMwZJ,0.0,10.0,0.109,-5.581,0.0,52.0,0.0558,163.965,4.0,b'Pray ft. Kameron Alexander (Blanke Remix)',audio_features,0.345
+183,0.434,Pray (ft. Kameron Alexander) - Remixes,ILLENIUM,0.451,509584.0,0.584,edm,3AAmKTbk163fRh6yUilX7r,0.0736,1.0,0.222,-9.029,1.0,24.0,0.0994,145.958,4.0,b'Pray ft. Kameron Alexander (Frequent Remix)',audio_features,0.095
+184,0.216,Pray (ft. Kameron Alexander) - Remixes,ILLENIUM,0.524,307600.0,0.853,edm,1CJo9pRcOCtKlq8XmB6bic,3.65e-05,10.0,0.0793,-1.783,0.0,30.0,0.29,75.235,4.0,b'Pray ft. Kameron Alexander (Sam Lamar Remix)',audio_features,0.259
+185,0.136,Pray (feat. Kameron Alexander),ILLENIUM,0.487,295890.0,0.693,edm,6SP30VdncYypcHkkzgbqZb,1.02e-05,10.0,0.105,-4.05,0.0,50.0,0.0395,145.937,4.0,b'Pray (feat. Kameron Alexander)',audio_features,0.29
+186,0.0799,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.499,116667.0,0.324,bmore,2mMQFumTaHcwMZsiNE57Um,0.0,0.0,0.352,-7.944,1.0,54.0,0.0641,119.266,4.0,"b'Welcome to the Wonderful World of (feat. Sia, Diplo, and Labrinth)'",audio_features,0.397
+187,0.0288,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.607,186120.0,0.616,bmore,6k71NlTnn41Vk7RJX7CSbY,0.0439,10.0,0.138,-6.925,1.0,58.0,0.0581,184.111,4.0,"b'Angel in Your Eyes (feat. Sia, Diplo, and Labrinth)'",audio_features,0.698
+188,0.0799,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.603,213707.0,0.615,bmore,4xigPf2sigSPmuFH3qCelB,6.72e-05,11.0,0.117,-4.931,0.0,76.0,0.165,158.657,4.0,"b'Genius (feat. Sia, Diplo, and Labrinth)'",audio_features,0.561
+189,0.209,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.568,204093.0,0.701,bmore,100eDEmpWV5YGVCqHI0leU,1.06e-06,3.0,0.0769,-4.566,0.0,71.0,0.0426,89.969,4.0,"b'Audio (feat. Sia, Diplo, and Labrinth)'",audio_features,0.353
+190,0.0077,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.69,187027.0,0.714,bmore,4lJNen4SMTIJMahALc3DcB,7.23e-05,7.0,0.191,-5.948,1.0,78.0,0.0338,112.009,4.0,"b'Thunderclouds (feat. Sia, Diplo, and Labrinth)'",audio_features,0.489
+191,0.39,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.625,194733.0,0.601,bmore,0HCDvbGNsigLpkzCDwpKVr,0.0348,1.0,0.0894,-7.766,1.0,60.0,0.0285,85.967,4.0,"b'Mountains (feat. Sia, Diplo, and Labrinth)'",audio_features,0.195
+192,0.0632,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.725,175827.0,0.703,bmore,6Dma0t0hOe6Bd6u5YRKF3n,0.000251,7.0,0.14,-4.641,1.0,73.0,0.0466,106.032,4.0,"b'No New Friends (feat. Sia, Diplo, and Labrinth)'",audio_features,0.638
+193,0.034,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.585,195747.0,0.525,bmore,2VDTgXwf3F6kcpX4HI0BKy,2.6e-05,7.0,0.139,-5.915,0.0,60.0,0.0817,167.811,3.0,"b'Heaven Can Wait (feat. Sia, Diplo, and Labrinth)'",audio_features,0.533
+194,0.934,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.398,209707.0,0.245,bmore,3j4lctlzJqDLNZjTLmc9CV,0.0,1.0,0.134,-9.215,1.0,58.0,0.0351,87.079,4.0,"b""It's Time (feat. Sia, Diplo, and Labrinth)""",audio_features,0.249
+195,0.0147,"LABRINTH, SIA & DIPLO PRESENT... LSD",Diplo,0.655,162960.0,0.764,bmore,4TlbZgqxhJ6uN3tpVyjw90,8.88e-05,11.0,0.0511,-3.381,0.0,62.0,0.193,159.017,4.0,"b'Genius (feat. Sia, Diplo, and Labrinth) - Lil Wayne Remix'",audio_features,0.707
+196,0.00165,On My Mind,Diplo,0.771,189268.0,0.731,bmore,5lXY6PTuWXOludKy4zDQwM,0.633,7.0,0.217,-6.574,1.0,69.0,0.0409,123.026,4.0,b'On My Mind',audio_features,0.635
+197,0.00505,Techno,Diplo,0.668,208012.0,0.911,bmore,1a9pLyUSVyBveL9jeWOtBI,0.000126,4.0,0.327,-4.157,0.0,9.0,0.0593,150.03,4.0,b'Techno',audio_features,0.655
+198,0.0218,Techno,Diplo,0.601,301507.0,0.976,bmore,1cayMDCGjLMwzkWNlfQ2Gk,0.00344,4.0,0.0838,-4.932,1.0,2.0,0.0707,149.975,4.0,b'Techno - Coone Remix',audio_features,0.691
+199,0.00132,Samba Sujo (Remixes),Diplo,0.681,188939.0,0.911,bmore,3graiRxQpq408QIHOAs7M6,0.000802,4.0,0.0862,-6.859,0.0,41.0,0.0473,124.988,4.0,b'Samba Sujo',audio_features,0.139
+200,0.00102,Samba Sujo (Remixes),Diplo,0.739,387004.0,0.934,bmore,60rm5quLJ5mwjJXjAHKB9c,0.8,9.0,0.0882,-6.494,0.0,33.0,0.0609,125.003,4.0,b'Samba Sujo - Blond:ish Remix',audio_features,0.423
+201,0.00359,Samba Sujo (Remixes),Diplo,0.749,330240.0,0.736,bmore,7Feg7qVl4TOVdLsb7Bjt5P,0.851,7.0,0.181,-13.566,1.0,24.0,0.0395,125.031,4.0,b'Samba Sujo - Felix Da Housecat & Dave The Hustler Remix',audio_features,0.826
+202,0.00756,Together,Tiësto,0.663,145728.0,0.95,big room,5UMPbGkhhURnJ4pRUatCM1,0.49,9.0,0.291,-3.297,1.0,35.0,0.0556,122.986,4.0,b'Feels So Good (feat. Kelli-Leigh)',audio_features,0.408
+203,0.000753,Together,Tiësto,0.59,195000.0,0.888,big room,4ldSdvJ8uB1yqwbwPmWIHg,0.00535,0.0,0.817,-4.151,1.0,40.0,0.0797,128.025,4.0,b'Halfway There (feat. Lena Leon)',audio_features,0.0715
+204,0.018,Together,Tiësto,0.732,166487.0,0.817,big room,52MTb9b74iZbt7tHr0edSj,0.000766,2.0,0.478,-4.979,1.0,40.0,0.147,126.064,4.0,"b""Can't Get Enough""",audio_features,0.332
+205,0.0103,Together,Tiësto,0.635,166560.0,0.878,big room,66bK3z2IYq1kbTCJfbAEV7,0.538,0.0,0.338,-4.753,1.0,39.0,0.07,125.002,4.0,b'Party Time',audio_features,0.414
+206,0.119,Together,Tiësto,0.699,155625.0,0.919,big room,47MxB1ynUy2zG0wi9AFMtF,0.0192,1.0,0.357,-3.847,1.0,33.0,0.271,128.049,4.0,b'My Whistle',audio_features,0.447
+207,0.0357,Together,Tiësto,0.748,145310.0,0.967,big room,6CZCOVWFNzcnoHbLbxwXna,0.528,1.0,0.634,-3.592,1.0,25.0,0.427,129.984,4.0,b'Lose Control',audio_features,0.282
+208,0.015,Together,Tiësto,0.611,187060.0,0.875,big room,1NK4H4cH7i0GZXpxJ9kwiv,0.000428,6.0,0.113,-3.917,1.0,34.0,0.0604,128.0,4.0,b'Trouble (feat. Micky Blue)',audio_features,0.304
+209,0.00497,Together,Tiësto,0.625,199385.0,0.961,big room,1LEYy8YmUyoLTA1CW26Syv,0.841,6.0,0.626,-3.915,0.0,31.0,0.205,129.949,4.0,b'Can You Feel It',audio_features,0.426
+210,0.00965,Together,Tiësto,0.561,215040.0,0.728,big room,0og4rAqfNVFqnqo7d8Apf3,0.00162,6.0,0.0917,-5.381,0.0,28.0,0.0408,150.048,4.0,b'Diamonds (feat. Micky Blue)',audio_features,0.252
