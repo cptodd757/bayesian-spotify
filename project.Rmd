@@ -199,7 +199,7 @@ Based on these plots, there appear to be some weak correlations between populari
 
 Next, we will construct a model for our data. 
 
-```{r}
+```{r echo = T, results = 'hide'}
 cols <- cbind(
   "genre",
   "acousticness",
@@ -228,38 +228,84 @@ fit <- stan_betareg(form,
 )
 ```
 
-
-
-HYPOTHESIS: Energy is probably negative because... we chose artists that are not high energy, and their audience.
-
 ```{r}
-posterior_vs_prior(fit, group_by_parameter = TRUE, pars=c("(Intercept)","genreedm","genrerap"))
+summary(fit, digits = 5, probs = c(0.05, 0.95))
 ```
 
+# Results
+
+So, now that our model has been fit with `stan_betareg` (using a `logit` link), we can interpret the coefficients in the context of predicting popularity of a song. Along with these coefficients, we have computed a 90% confidence interval so that we may determine which predictors, in this model, appear to be significant in predicting the popularity of a song. These are: 
+
+- genre, 
+- duration (& pop baseline), 
+- energy (& pop baseline), 
+- liveness, 
+- speechiness (& pop baseline), 
+- interaction (genre=rap) * energy, 
+- interaction (genre=edm) * speechiness, 
+- interaction (genre=rap) * speechiness,
+- interaction (genre=edm) * duration
+- interaction (genre=rap) * duration
+- interaction (genre=edm) * loudness
+
+It's important to keep in mind that these coefficients are transformed through our `logit` link, so we need to take the `inv.logit` (found in library `gtools`) to calculate the actual per-unit change in `popularity`. The sign/direction of popularity change, however, remains the same whether transformed or not.
+
+
+First, let's take a look at our trace plots to see if we're sampling fairly efficiently, as opposed to getting stuck in any local optimum.
+
 ```{r}
-summary(fit, digits = 4)
+stan_trace(fit, pars=c("(Intercept)",
+"genreedm",
+"genrerap",
+"acousticness",
+"danceability",
+"duration_ms",
+"energy",
+"instrumentalness",
+"liveness",
+"loudness",
+"speechiness",
+"tempo",
+"valence",
+"mode1",
+"genreedm:energy",
+"genrerap:energy",
+"genreedm:tempo",
+"genrerap:tempo",
+"genreedm:speechiness",
+"genrerap:speechiness",
+"genreedm:duration_ms",
+"genrerap:duration_ms",
+"genreedm:loudness",
+"genrerap:loudness",
+"(phi)"))
 ```
 
-## Initial Discoveries
-Longer duration => more popularity for pop, but not rap or edm.
-Speechiness is more determinant than rap/edm for popularity.
-
-```{r}
-print(fit, digits = 4)
-```
-
-```{r}
-stan_trace(fit, pars=c("(Intercept)","genrerap","genrepop", "acousticness","danceability","duration_ms","energy","instrumentalness","liveness","loudness","speechiness","tempo","valence","genrepop:energy","genrerap:energy","genrepop:tempo","genrerap:tempo","genrepop:speechiness","genrerap:speechiness","genrepop:duration_ms","genrerap:duration_ms","(phi)"))
-```
+Everything here looks fairly random.
 
 
+Next, we'll do a posterior predictive check to see how sampled random predicted popularities line up with our real popularities.
 
 ```{r}
 pp_check(fit)
 ```
 
-```{r}
-ggplot(data = data_norm, mapping = aes(x = popularity)) +
-  geom_density()
-```
+Nothing too surprising here. We're predicting with a beta distribution, and it looks similiar, but of course predicting popularity is difficult.
 
+###  Key Findings
+
+- Since we mean centered our data, we can interpret our intercepts as the popularity metric of a song with average attributes for all predictors. For a pop song, our mean popularity is `inv.logit(0.73613) = 67.6%`, a rap song is  `inv.logit(0.73613 - 0.20453) = 62.9%`, and an edm song is `inv.logit(0.73613 -0.63032) = 52.6%`. And this makes sense. Pop is called pop for a reason, it's more popular. And as of right now, it seems like, on Spotify at least, rap music is more popular than edm on average. But of course, this is also dependent on our dataset and which artists we choose. In an ideal world, we would have every artist under all three genres. This is also why popularity is so high, even on all three,.. we've selectively chosen popular artists that most people will know. Thus, our model is only good at predicting popularity of songs of artists similiar to the ones we have chosen. Otherwise, we're outside of the domain.
+
+- Loudness itself is not a significant predictor, until it is paired with edm music. The coefficient is positive, which implies that the louder the song (in the context of edm genre), the more popular the song may be.
+
+- Speechiness, at a baseline, has a positive coefficient, which implies that the speechier a song is, the more popular it may be. However, this is not the case when interaction between genre is added. The mean coefficiet for edm (0.01351 - 0.03057 < 0) and rap (0.01351 - 0.01509 < 0) both contribute to less popularity. Thus, we can conclude that speechiness in pop music is correlated to increased popularity, whereas in edm music increased speechiness is correlated to decreased popularity. This is also the case in rap music, which is somewhat surprising, as rap music is typically fairly lyrically heavy, but since the value is fairly close to 0 (0.01351 - 0.01509) all we really know is that speechiness in rap music perhaps doesn't matter as much to the listener, and therefore has little effect on popularity.
+
+- Duration, at the baseline, has a positive coefficient, which implies that the longer a song is, the more popular it may be. This is only the case when looking at the `pop` genre, however. When we look at `rap` and `edm`, we find that the coefficient is negative, thus in these genres, listeners seem to lose interest as the song becomes longer (i.e. lower popularity).
+
+- Although mode is not a significant predictor, it is definitely weighted to one side. A mode of 0 implies the song is in minor key, while a mode of 1 implies the song is in major key. And the weighting is towards... minor! Thus, all else equal, our model will predict a song to have higher popularity if it is in minor key. We can infer, then, that people prefer songs that sound sad. But again, this is only a slight, and seemingly insignificant predictive change, according to quantiles. 
+
+# Results
+
+Predicting song popularity is difficult...
+
+Talk about how model only good at predicting data inside the data domain (e.g. popular artists).
