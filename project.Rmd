@@ -17,7 +17,7 @@ library(rstanarm)
 ## Analysis
 
 ```{r}
-data <- read_csv("data/Travis Scott_Drake_DaBaby_Ed Sheeran_Ariana Grande_Billie Eilish_ILLENIUM_Diplo_Tiësto_2019.csv")
+data <- read_csv("data/Travis Scott_Drake_DaBaby_Kanye West_Offset_Lil Skies_Ed Sheeran_Ariana Grande_Billie Eilish_Jonas Brothers_Camila Cabello_Harry Styles_ILLENIUM_Diplo_Tiësto_Marshmello_Flume_Avicii_2019.csv")
 ```
 
 ```{r}
@@ -29,37 +29,64 @@ Merge specific genres that we intend to use into a more broad genre category.
 
 data <- data %>% mutate(
   genre = case_when(
-    artist == "Travis Scott" | artist == "Drake" | artist == "DaBaby" ~ "rap", 
-    artist == "Ed Sheeran" | artist == "Ariana Grande" | artist == "Billie Eilish" ~ "pop", 
-    artist == "ILLENIUM" | artist == "Diplo" | artist == "Tiësto" ~ "edm"
+    artist == "Travis Scott" | artist == "Drake" | artist == "DaBaby" | artist == "Kanye West" | artist == "Offset" | artist == "Lil Skies" ~ "rap", 
+    artist == "Ed Sheeran" | artist == "Ariana Grande" | artist == "Billie Eilish" | artist == "Jonas Brothers" | artist == "Camila Cabello" | artist == "Harry Styles" ~ "pop", 
+    artist == "ILLENIUM" | artist == "Diplo" | artist == "Tiësto" | artist == "Marshmello" | artist == "Flume" | artist == "Avicii" ~ "edm"
   ),
-  ablum = as.factor(album),
+  album = as.factor(album),
   artist = as.factor(artist),
   genre = as.factor(genre),
   key = as.factor(key),
   mode = as.factor(mode),
   time_signature = as.factor(time_signature),
-  title = as.factor(title)
+  title = as.factor(title),
 )
 
+```
+
+```{r}
+data %>% filter(is.na(genre))
+```
+```{r}
+data %>% select(genre) %>% unique()
 ```
 
 
 ```{r}
 data_norm <- data %>% mutate(
-  popularity = popularity / 100
+  popularity = popularity / 100,
+  acousticness = (acousticness - mean(acousticness)) / sd(acousticness),
+  danceability = (danceability - mean(danceability)) / sd(danceability),
+  duration_ms = (duration_ms - mean(duration_ms)) / sd(duration_ms),
+  energy = (energy - mean(energy)) / sd(energy),
+  instrumentalness = (instrumentalness - mean(instrumentalness)) / sd(instrumentalness),
+  liveness = (liveness - mean(liveness)) / sd(liveness),
+  loudness = (loudness - mean(loudness)) / sd(loudness),
+  speechiness = (speechiness - mean(speechiness)) / sd(speechiness),
+  tempo = (tempo - mean(tempo)) / sd(tempo),
+  valence = (valence - mean(valence)) / sd(valence),
 )
 ```
 
 
-Look at popularity between genres (hypothesis: edm lower than.. pop/rap?)
+EDA: Look at popularity between genres (hypothesis: edm lower than.. pop/rap?)
+
 
 ```{r}
-fit <- stan_betareg(popularity ~ tempo + energy + danceability + duration_ms + energy * genre, data = data_norm)
+fit <- stan_betareg(popularity ~ acousticness + danceability + duration_ms + energy + instrumentalness + liveness + loudness + speechiness + tempo + valence + genre * energy + genre * tempo + genre * speechiness + genre * duration_ms, data = data_norm, link = "logit", algorithm = "sampling")
 ```
 
+Energy is probably negative because... we chose artists that are not high energy, and their audience.
 
 ```{r}
-summary(fit)
+summary(fit, digits = 4)
+```
+
+## Initial Discoveries
+Longer duration => more popularity for pop, but not rap or edm.
+Speechiness is more determinant than rap/edm for popularity.
+
+```{r}
+print(fit, digits = 4)
 ```
 
