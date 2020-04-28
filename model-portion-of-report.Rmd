@@ -1,0 +1,12 @@
+---
+title: "Model portion"
+output: html_document
+---
+
+Model
+	
+	As stated, we have fitted a Bayesian generalized linear model to our data.  In keeping with the tradition of Bayesian regression, we have set a multivariate normal prior for the regression coefficients.  As recommended by the RSTAN documentation for Bayesian modeling, we have let this prior be expressed as 𝜷 ~ MVN(0, 𝜎I), where 𝜎 is the sample standard deviation of our response variable, popularity.  The sampling distribution we selected to model popularity is a Beta distribution, because our exploratory data analysis revealed that the variable exhibits a unimodal distribution bound between 0 and 1.
+	
+  Per recommendations from notes on Bayesian GLM’s from a University of Washington graduate course, we have made a couple of additional model choices (TODO: make a citation: https://jrnold.github.io/bayesian_notes/index.html).  Regarding the sampling distribution, we let [Y | 𝜃] ~ Beta(𝜃𝜙, (1 - 𝜃)𝜙), where 𝜙 is also modeled using a normal prior.  Furthermore, we have decided to use the logit function as our link function, so that logit(𝜃) = (X^T)𝜷, because the parameters to our Beta sampling distribution must be non-negative, and the logit allows for a more intuitive interpretation than the probit link function. 
+  
+TODO: include discussion of model performance diagnostics, and MCMC convergence diagnostics (those random looking plots)
