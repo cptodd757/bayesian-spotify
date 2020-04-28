@@ -1,0 +1,45 @@
+---
+title: "EDA"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(pracma)
+
+data %>%
+  keep(is.numeric) %>% 
+  select(-X1) %>%
+  gather() %>% 
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = "free") +
+    geom_histogram()
+
+data %>%
+  keep(is.factor) %>% 
+  select(-ablum, -title) %>%
+  gather() %>% 
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = "free") +
+    geom_bar()
+```
+
+```{r}
+for (i in colnames(data))
+{
+  if (!strcmp(i, "win_pct") && !strcmp(i,"Win") && !strcmp(i,"log_odds") && !strcmp(i,"TEAM") && !strcmp(i,"Loss"))
+  {
+    print(ggplot(data,aes(data[[i]],popularity))+
+      geom_point()+
+      labs(x=i,y="Popularity",title=paste("Popularity vs.",i)))
+  }
+}
+
+
+
+```
+
