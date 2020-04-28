@@ -17,29 +17,40 @@ data %>%
   gather() %>% 
   ggplot(aes(value)) +
     facet_wrap(~ key, scales = "free") +
-    geom_histogram()
+    geom_histogram() +
+    ggtitle("Distributions of Continuous Predictor Variables")
 
 data %>%
   keep(is.factor) %>% 
-  select(-ablum, -title) %>%
+  select(-album, -title) %>%
   gather() %>% 
   ggplot(aes(value)) +
     facet_wrap(~ key, scales = "free") +
-    geom_bar()
+    geom_bar() +
+    ggtitle("Distributions of Categorical Predictor Variables")
 ```
 
 ```{r}
+
+dontgraph = c('X1','popularity','id','album','type','title')
+
 for (i in colnames(data))
 {
-  if (!strcmp(i, "win_pct") && !strcmp(i,"Win") && !strcmp(i,"log_odds") && !strcmp(i,"TEAM") && !strcmp(i,"Loss"))
+  if (i %in% dontgraph)
+  {
+  }
+  else if (!is.numeric(data[[i]]))
+  {
+    print(ggplot(data,aes(data[[i]],popularity))+
+      geom_boxplot()+
+      labs(x=i,y="Popularity",title=paste("Popularity vs.",i)))
+  }
+  else 
   {
     print(ggplot(data,aes(data[[i]],popularity))+
       geom_point()+
       labs(x=i,y="Popularity",title=paste("Popularity vs.",i)))
   }
 }
-
-
-
 ```
 
