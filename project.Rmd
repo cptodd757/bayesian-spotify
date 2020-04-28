@@ -7,10 +7,61 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+# Modeling Song Popularity with Bayesian Linear Regression on Spotify Data
+
+## STA360 Final Project
+
+## Charlie Todd and Alex Balfanz
+
+### Introduction
+
+  Over the course of the past decade, music streaming services such as Spotify have changed the landscape of the music industry.  For consumers, all kinds of music are now much more accessible than ever; for artists, then, the potential for exposure and recognition is likewise at an all-time high.  So, an investigation into the ingredients for creating a popular song has massive implications, especially for artists, if they want to better understand how to increase their chances of attracting attention and producing hits.  Furthermore, Spotify itself, along with other companies in the entertainment industry, could capitalize off of targeting songs with high predicted popularity in hopes of fueling marketing campaigns or other strategies.  The idea of song popularity also piques the interest of everyday consumers of music, such as ourselves, as evidenced by the online success of marketing programs like Spotify Wrapped and the prevalence of music as a topic in common conversation.
+	
+	Therefore, the goals for this project are to both explain and predict the popularity of songs on Spotify, using a Bayesian generalized linear model.  Our dataset has been constructed using the Spotify Web API, which exposes valuable information about its catalogue of songs, to be explained later in greater detail.  The model will predict the “popularity” score, an advanced metric computed by Spotify’s own proprietary algorithms, based on a number of other continuous and categorical predictor variables available through the API.  We will first construct a full model based on all predictor variables deemed to be relevant beforehand, interpret the results of this model, and then use backwards selection to generate the most succinct model for predicting the popularity of previously unseen songs.
+
+### Data
+
+	The dataset used in this investigation has been compiled using a Python script which communicates with the Spotify Web API.  It consists of 412 songs released in the 2019 calendar year by top performers in the rap, pop, and electronic dance music (EDM) genres.  We chose to select songs only release in 2019 due to the most prominent challenge regarding our data: Spotify does not allow access to raw metrics such as number of recent or total streams, instead offering their own popularity metric, which is based on release date in some undisclosed way.  So, to eliminate any unwanted and inexplicable variation in the response based on Spotify’s algorithms, we have kept the release year constant, selecting the most recent full year.  We selected rap, pop, and EDM because these are some of the most prominent genres today, and we wanted to observe potential interaction effects that govern the popularity of songs in these particular genres.  
+	
+	The dataset consists of 19 variables which we have categorized as metadata, basic features, and advanced features.  The metadata consists of straightforward information which is not used in the model, such as song title and artist.  The simple features contain other straightforward quantities like duration, and strictly defined musical quantities such as tempo, some of which are computed with Spotify’s algorithms.  The advanced features are some more abstract quantities ranging from 0 to 1 such as “danceability” and “speechiness”, which are all computed by Spotify’s algorithms and made available through the API. 
+	
+	More information about Spotify Audio Features can be found here: https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/
+
+
+Metadata:
+
+- Title: title of the song
+- Artist: one of the artists contributing to a song
+- Album: the album on Spotify which features this song (includes wrappers for single releases, as well as remixes)
+- Id: unique ID number for the song
+
+Basic predictors:
+
+- Genre: the overarching genre to which the song belongs (rap, pop, or EDM)
+- Key: the key signature of the song (0 through 11, with 0 corresponding to C), with Mode
+- Mode: whether or not a song is in a “major” (1) or “minor” (0) key 
+- Time signature: the time signature of the song; e.g., 2, 3, 4, or 0, if there is no discernible one
+- Duration: duration of the song in milliseconds.
+- Tempo: the song’s number of beats per minute 
+- Loudness: the average decibel level of the song
+
+Advanced features (calculated by Spotify’s algorithms behind-the-scenes:
+
+- Acousticness: how much a song sounds like it was produced with real, non-electronic instruments
+- Danceability: how suitable a song is for dancing, based on rhythms and tempo stability
+- Energy: how much energy and excitement a song has, as opposed to calmness
+- Instrumentalness: how much a song doesn’t have vocals in it
+- Liveness: how confident Spotify is that the song is from a live concert
+- Popularity: a measure based on total number of plays and recency of those plays, among other things
+- Speechiness: how much spoken word the song contains
+- Valence: how positive and happy a song sounds, contrasted with sad or negative
+
+```{r echo=FALSE}
 library(tidyverse)
 library(ggplot2)
+library(rstan)
 library(rstanarm)
+library(pracma)
 ```
 
 
@@ -20,11 +71,13 @@ library(rstanarm)
 data <- read_csv("data/Travis Scott_Drake_DaBaby_Kanye West_Offset_Lil Skies_Ed Sheeran_Ariana Grande_Billie Eilish_Jonas Brothers_Camila Cabello_Harry Styles_ILLENIUM_Diplo_Tiësto_Marshmello_Flume_Avicii_2019.csv")
 ```
 
-```{r}
-data %>% select("artist") %>% unique()
-```
 
-Merge specific genres that we intend to use into a more broad genre category.
+
+Once we have loaded the dataset, our first step is to categorize each song into the genre of pop, rap, or EDM, depending on who the artist is.  We chose artists that are at the top of their respective genres and have recently released albums.  
+
+We also convert some of our categorical variables into factor variables, so that our graphing and modeling packages treat them as such.
+
+
 ```{r}
 
 data <- data %>% mutate(
@@ -35,48 +88,153 @@ data <- data %>% mutate(
   ),
   album = as.factor(album),
   artist = as.factor(artist),
-  genre = as.factor(genre),
+  genre = relevel(as.factor(genre), "pop"),
   key = as.factor(key),
   mode = as.factor(mode),
   time_signature = as.factor(time_signature),
   title = as.factor(title),
 )
-
 ```
 
-```{r}
+```{r echo=FALSE}
+data %>% select("artist") %>% unique()
+```
+
+```{r echo=FALSE}
 data %>% filter(is.na(genre))
 ```
-```{r}
+```{r echo=FALSE}
 data %>% select(genre) %>% unique()
 ```
 
+Our next step is to rescale our response variable and some of our predictor variables.  We rescale our response variable, popularity, because its support originally ranges from 0 to 100 (inclusive), but we want its support to range from 0 to 1 inclusive, so that it can be modeled as a Beta random variable.  We rescale some of our predictor variables so that all of them have a similar range, which will prevent our model coefficients from ultimately being uninterprably small or large.  For example, duration (measured at first in milliseconds) originally is on the order of hundred-thousands, and Spotify metrics like danceability are bounded between 0 and 1.  So, we chose to scale these Spotify metrics up by 100, and scale duration from milliseconds down to seconds.  
+
+# TODO: MEAN CENTERING
 
 ```{r}
 data_norm <- data %>% mutate(
   popularity = popularity / 100,
-  acousticness = (acousticness - mean(acousticness)) / sd(acousticness),
-  danceability = (danceability - mean(danceability)) / sd(danceability),
-  duration_ms = (duration_ms - mean(duration_ms)) / sd(duration_ms),
-  energy = (energy - mean(energy)) / sd(energy),
-  instrumentalness = (instrumentalness - mean(instrumentalness)) / sd(instrumentalness),
-  liveness = (liveness - mean(liveness)) / sd(liveness),
-  loudness = (loudness - mean(loudness)) / sd(loudness),
-  speechiness = (speechiness - mean(speechiness)) / sd(speechiness),
-  tempo = (tempo - mean(tempo)) / sd(tempo),
-  valence = (valence - mean(valence)) / sd(valence),
+  duration_ms = duration_ms / 1000,
+  acousticness = (acousticness) * 100,
+  danceability = danceability * 100,
+  energy = energy * 100,
+  instrumentalness = (instrumentalness) * 100,
+  liveness = (liveness) * 100,
+  speechiness = (speechiness) * 100,
+  valence = valence * 100,
+  # tempo,
+  # loudness,
+)
+
+# mean center (so we can interpret the intercept)
+data_norm <- data_norm %>% mutate(
+  duration_ms = duration_ms - mean(duration_ms),
+  acousticness = acousticness - mean(acousticness),
+  danceability = danceability - mean(danceability),
+  energy = energy - mean(energy),
+  instrumentalness = instrumentalness - mean(instrumentalness),
+  liveness = liveness - mean(liveness),
+  speechiness = speechiness - mean(speechiness),
+  valence = valence - mean(valence),
+  tempo = tempo - mean(tempo),
+  loudness = loudness - mean(loudness)
+)
+```
+
+Next, we perform univariate analysis by examining the distributions of the response and predictor variables.
+
+```{r}
+data %>%
+  keep(is.numeric) %>% 
+  select(-X1) %>%
+  gather() %>% 
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = "free") +
+    geom_histogram() +
+    ggtitle("Distributions of Continuous Predictor Variables")
+
+data %>%
+  keep(is.factor) %>% 
+  select(-album, -title) %>%
+  gather() %>% 
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = "free") +
+    geom_bar() +
+    ggtitle("Distributions of Categorical Predictor Variables")
+```
+
+Many of the continuous predictor variables follow approximately normal distributions, such as duration and danceability.  Others, like liveness, acousticness, instrumentalness, and speechiness, appear much more skewed right--this makes sense because the tracks we selected are songs from studio albums, in genres that rely heavily on electronic music production.  As a result, before fitting our model, we will log-transform these variables to create more normal-looking distributions.  Our response variable, popularity, is unimodally distributed over the domain [0, 1], so we have chosen to use a Beta distribution to model it.
+
+Three of our four categorical variables (artist, genre, and mode) appear relatively uniformly distributed, meaning we have a good balance of songs with respect to those categories.  Time signature, on the other hand, takes a value of 4 for almost all of the observations (this is consistent with all music in general), so it will not be useful to include as a predictor in the model.
+
+Next, we observe the individual correlations between each predictor variable and popularity.
+
+```{r}
+
+dontgraph = c('X1','popularity','id','album','type','title')
+
+for (i in colnames(data))
+{
+  if (i %in% dontgraph)
+  {
+  }
+  else if (!is.numeric(data[[i]]))
+  {
+    print(ggplot(data,aes(data[[i]],popularity))+
+      geom_boxplot()+
+      labs(x=i,y="Popularity",title=paste("Popularity vs.",i)))
+  }
+  else 
+  {
+    print(ggplot(data,aes(data[[i]],popularity))+
+      geom_point()+
+      labs(x=i,y="Popularity",title=paste("Popularity vs.",i)))
+  }
+}
+```
+
+Based on these plots, there appear to be some weak correlations between popularity and predictor variables, such as the positive correlation with danceability and the negative correlation with energy.  There also appears to be a difference in overall popularity between edm and the other two genres.  Although the correlations appear small in these graphs, we predict that they will be non-trivial, and that interesting interaction effects between genre and other variables will also account for variation in popularity.  
+
+# Model
+
+Next, we will construct a model for our data. 
+
+```{r}
+cols <- cbind(
+  "genre",
+  "acousticness",
+  "danceability",
+  "duration_ms",
+  "energy",
+  "instrumentalness",
+  "liveness",
+  "loudness",
+  "speechiness",
+  "tempo",
+  "valence",
+  "mode",
+  "genre * energy",
+  "genre * tempo",
+  "genre * speechiness",
+  "genre * duration_ms",
+  "genre * loudness")
+
+form <- as.formula(paste0("popularity ~ ", paste(cols, collapse = "+")))
+fit <- stan_betareg(form,
+
+  data = data_norm, 
+  link = "logit", 
+  algorithm = "sampling"
 )
 ```
 
 
-EDA: Look at popularity between genres (hypothesis: edm lower than.. pop/rap?)
 
+HYPOTHESIS: Energy is probably negative because... we chose artists that are not high energy, and their audience.
 
 ```{r}
-fit <- stan_betareg(popularity ~ acousticness + danceability + duration_ms + energy + instrumentalness + liveness + loudness + speechiness + tempo + valence + genre * energy + genre * tempo + genre * speechiness + genre * duration_ms, data = data_norm, link = "logit", algorithm = "sampling")
+posterior_vs_prior(fit, group_by_parameter = TRUE, pars=c("(Intercept)","genreedm","genrerap"))
 ```
-
-Energy is probably negative because... we chose artists that are not high energy, and their audience.
 
 ```{r}
 summary(fit, digits = 4)
@@ -88,5 +246,20 @@ Speechiness is more determinant than rap/edm for popularity.
 
 ```{r}
 print(fit, digits = 4)
+```
+
+```{r}
+stan_trace(fit, pars=c("(Intercept)","genrerap","genrepop", "acousticness","danceability","duration_ms","energy","instrumentalness","liveness","loudness","speechiness","tempo","valence","genrepop:energy","genrerap:energy","genrepop:tempo","genrerap:tempo","genrepop:speechiness","genrerap:speechiness","genrepop:duration_ms","genrerap:duration_ms","(phi)"))
+```
+
+
+
+```{r}
+pp_check(fit)
+```
+
+```{r}
+ggplot(data = data_norm, mapping = aes(x = popularity)) +
+  geom_density()
 ```
 
