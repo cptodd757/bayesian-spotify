@@ -1,6 +1,10 @@
 ---
 title: "Bayesian Spotify"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+- \usepackage{amsmath}
 ---
 
 ```{r setup, include=FALSE}
@@ -15,17 +19,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Introduction
 
-  Over the course of the past decade, music streaming services such as Spotify have changed the landscape of the music industry.  For consumers, all kinds of music are now much more accessible than ever; for artists, then, the potential for exposure and recognition is likewise at an all-time high.  So, an investigation into the ingredients for creating a popular song has massive implications, especially for artists, if they want to better understand how to increase their chances of attracting attention and producing hits.  Furthermore, Spotify itself, along with other companies in the entertainment industry, could capitalize off of targeting songs with high predicted popularity in hopes of fueling marketing campaigns or other strategies.  The idea of song popularity also piques the interest of everyday consumers of music, such as ourselves, as evidenced by the online success of marketing programs like Spotify Wrapped and the prevalence of music as a topic in common conversation.
+Over the course of the past decade, music streaming services such as Spotify have changed the landscape of the music industry.  For consumers, all kinds of music are now much more accessible than ever; for artists, then, the potential for exposure and recognition is likewise at an all-time high.  So, an investigation into the ingredients for creating a popular song has massive implications, especially for artists, if they want to better understand how to increase their chances of attracting attention and producing hits.  Furthermore, Spotify itself, along with other companies in the entertainment industry, could capitalize off of targeting songs with high predicted popularity in hopes of fueling marketing campaigns or other strategies.  The idea of song popularity also piques the interest of everyday consumers of music, such as ourselves, as evidenced by the online success of marketing programs like Spotify Wrapped and the prevalence of music as a topic in common conversation.
 	
-	Therefore, the goals for this project are to both explain and predict the popularity of songs on Spotify, using a Bayesian generalized linear model.  Our dataset has been constructed using the Spotify Web API, which exposes valuable information about its catalogue of songs, to be explained later in greater detail.  The model will predict the “popularity” score, an advanced metric computed by Spotify’s own proprietary algorithms, based on a number of other continuous and categorical predictor variables available through the API.  We will first construct a full model based on all predictor variables deemed to be relevant beforehand, interpret the results of this model, and then use backwards selection to generate the most succinct model for predicting the popularity of previously unseen songs.
+Therefore, the goals for this project are to both explain and predict the popularity of songs on Spotify, using a Bayesian generalized linear model.  Our dataset has been constructed using the Spotify Web API, which exposes valuable information about its catalogue of songs, to be explained later in greater detail.  The model will predict the “popularity” score, an advanced metric computed by Spotify’s own proprietary algorithms, based on a number of other continuous and categorical predictor variables available through the API.  We will first construct a full model based on all predictor variables deemed to be relevant beforehand, interpret the results of this model, and then use backwards selection to generate the most succinct model for predicting the popularity of previously unseen songs.
 
 ### Data
 
-	The dataset used in this investigation has been compiled using a Python script which communicates with the Spotify Web API.  It consists of 412 songs released in the 2019 calendar year by top performers in the rap, pop, and electronic dance music (EDM) genres.  We chose to select songs only release in 2019 due to the most prominent challenge regarding our data: Spotify does not allow access to raw metrics such as number of recent or total streams, instead offering their own popularity metric, which is based on release date in some undisclosed way.  So, to eliminate any unwanted and inexplicable variation in the response based on Spotify’s algorithms, we have kept the release year constant, selecting the most recent full year.  We selected rap, pop, and EDM because these are some of the most prominent genres today, and we wanted to observe potential interaction effects that govern the popularity of songs in these particular genres.  
+The dataset used in this investigation has been compiled using a Python script which communicates with the Spotify Web API.  It consists of 412 songs released in the 2019 calendar year by top performers in the rap, pop, and electronic dance music (EDM) genres.  We chose to select songs only release in 2019 due to the most prominent challenge regarding our data: Spotify does not allow access to raw metrics such as number of recent or total streams, instead offering their own popularity metric, which is based on release date in some undisclosed way.  So, to eliminate any unwanted and inexplicable variation in the response based on Spotify’s algorithms, we have kept the release year constant, selecting the most recent full year.  We selected rap, pop, and EDM because these are some of the most prominent genres today, and we wanted to observe potential interaction effects that govern the popularity of songs in these particular genres.  
 	
-	The dataset consists of 19 variables which we have categorized as metadata, basic features, and advanced features.  The metadata consists of straightforward information which is not used in the model, such as song title and artist.  The simple features contain other straightforward quantities like duration, and strictly defined musical quantities such as tempo, some of which are computed with Spotify’s algorithms.  The advanced features are some more abstract quantities ranging from 0 to 1 such as “danceability” and “speechiness”, which are all computed by Spotify’s algorithms and made available through the API. 
+The dataset consists of 19 variables which we have categorized as metadata, basic features, and advanced features.  The metadata consists of straightforward information which is not used in the model, such as song title and artist.  The simple features contain other straightforward quantities like duration, and strictly defined musical quantities such as tempo, some of which are computed with Spotify’s algorithms.  The advanced features are some more abstract quantities ranging from 0 to 1 such as “danceability” and “speechiness”, which are all computed by Spotify’s algorithms and made available through the API. 
 	
-	More information about Spotify Audio Features can be found here: https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/
+More information about Spotify Audio Features can be found here: https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/
 
 
 Metadata:
@@ -56,22 +60,21 @@ Advanced features (calculated by Spotify’s algorithms behind-the-scenes:
 - Speechiness: how much spoken word the song contains
 - Valence: how positive and happy a song sounds, contrasted with sad or negative
 
-```{r echo=FALSE}
+## Analysis
+
+```{r echo=FALSE, results = 'hide'}
 library(tidyverse)
 library(ggplot2)
 library(rstan)
 library(rstanarm)
 library(pracma)
+library(performance)
 ```
 
 
-## Analysis
-
-```{r}
+```{r results = 'hide'}
 data <- read_csv("data/Travis Scott_Drake_DaBaby_Kanye West_Offset_Lil Skies_Ed Sheeran_Ariana Grande_Billie Eilish_Jonas Brothers_Camila Cabello_Harry Styles_ILLENIUM_Diplo_Tiësto_Marshmello_Flume_Avicii_2019.csv")
 ```
-
-
 
 Once we have loaded the dataset, our first step is to categorize each song into the genre of pop, rap, or EDM, depending on who the artist is.  We chose artists that are at the top of their respective genres and have recently released albums.  
 
@@ -96,14 +99,14 @@ data <- data %>% mutate(
 )
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, results = 'hide'}
 data %>% select("artist") %>% unique()
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, results = 'hide'}
 data %>% filter(is.na(genre))
 ```
-```{r echo=FALSE}
+```{r echo=FALSE, results = 'hide'}
 data %>% select(genre) %>% unique()
 ```
 
@@ -195,9 +198,11 @@ for (i in colnames(data))
 
 Based on these plots, there appear to be some weak correlations between popularity and predictor variables, such as the positive correlation with danceability and the negative correlation with energy.  There also appears to be a difference in overall popularity between edm and the other two genres.  Although the correlations appear small in these graphs, we predict that they will be non-trivial, and that interesting interaction effects between genre and other variables will also account for variation in popularity.  
 
-# Model
-
-Next, we will construct a model for our data. 
+## Model
+	
+As stated, we have fitted a Bayesian generalized linear model to our data.  In keeping with the tradition of Bayesian regression, we have set a multivariate normal prior for the regression coefficients.  As recommended by the RSTAN documentation for Bayesian modeling, we have let this prior be expressed as $\boldsymbol{\beta} \sim \text{MVN}(\boldsymbol{0}, \sigma I)$, where $\sigma$ is the sample standard deviation of our response variable, popularity.  The sampling distribution we selected to model popularity is a Beta distribution, because our exploratory data analysis revealed that the variable exhibits a unimodal distribution bound between 0 and 1.
+  
+Per recommendations from notes on Bayesian GLM’s from a University of Washington graduate course, we have made a couple of additional model choices (TODO: make a citation: https://jrnold.github.io/bayesian_notes/index.html).  Regarding the sampling distribution, we let $[Y | \theta] \sim Beta(\theta \phi, (1 - \theta)\phi)$, where $\phi$ is also modeled using a normal prior. Furthermore, we have decided to use the logit function as our link function, so that $\text{logit}(\theta) = X^T\boldsymbol{\beta}$, because the parameters to our Beta sampling distribution must be non-negative, and the logit allows for a more intuitive interpretation than the probit link function. 
 
 ```{r echo = T, results = 'hide'}
 cols <- cbind(
@@ -232,7 +237,7 @@ fit <- stan_betareg(form,
 summary(fit, digits = 5, probs = c(0.05, 0.95))
 ```
 
-# Results
+## Results
 
 So, now that our model has been fit with `stan_betareg` (using a `logit` link), we can interpret the coefficients in the context of predicting popularity of a song. Along with these coefficients, we have computed a 90% confidence interval so that we may determine which predictors, in this model, appear to be significant in predicting the popularity of a song. These are: 
 
@@ -304,8 +309,115 @@ Nothing too surprising here. We're predicting with a beta distribution, and it l
 
 - Although mode is not a significant predictor, it is definitely weighted to one side. A mode of 0 implies the song is in minor key, while a mode of 1 implies the song is in major key. And the weighting is towards... minor! Thus, all else equal, our model will predict a song to have higher popularity if it is in minor key. We can infer, then, that people prefer songs that sound sad. But again, this is only a slight, and seemingly insignificant predictive change, according to quantiles. 
 
-# Results
+
+### Model Tuning
+
+Since some of these variables seem to be noticeably more effective at predicting than others, we decided it would be worthwhile to do backwards selection in order to create a reduced model. We chose to use the WAIC metric, an extension of the AIC metric that we used in 210, that works well with the rstan regression library.
+
+```{r eval=FALSE}
+pred_full <- cbind(
+  "genre",
+  "acousticness",
+  "danceability",
+  "duration_ms",
+  "energy",
+  "instrumentalness",
+  "liveness",
+  "loudness",
+  "speechiness",
+  "tempo",
+  "valence",
+  "mode",
+  "genre * energy",
+  "genre * tempo",
+  "genre * speechiness",
+  "genre * duration_ms"
+)
+```
+
+
+```{r eval=FALSE}
+form_full <- as.formula(paste0("popularity ~ ", paste(pred_full, collapse = "+")))
+fit_full <- stan_betareg(form_full, data = data_norm, link = "logit", algorithm = "sampling")
+
+waic_full <- model_performance(fit_full, metrics = "WAIC")$WAIC
+while (TRUE) {
+  metrics <- NULL
+
+  for (i in 1:length(pred_full)) {
+    print(paste("Attempting model with removed:", pred_full[i]))
+
+    pred <- pred_full[-i] # remove one column
+    form <- as.formula(paste0("popularity ~ ", paste(pred, collapse = "+")))
+    fit <- stan_betareg(form, data = data_norm, link = "logit", algorithm = "sampling")
+    waic <- model_performance(fit, metrics = "WAIC")$WAIC
+
+    metrics <- rbind(metrics, waic)
+  }
+  print(waic_full)
+  print(metrics)
+  # if current WAIC is lower than minimum new WAIC, current model is best.
+  if (waic_full < min(metrics)) {
+    print("Full model from last step has better WAIC. Stopping.")
+    break
+  }
+  print(paste("Remove variable:", pred_full[which.min(metrics)]))
+  pred_full <- pred_full[-which.min(metrics)] # remove predictor whose removal minimizes waic (least useful variable). Looking for model with lowest waic.
+  
+  # update waic full so we aren't recomputing model every loop
+  waic_full <- min(metrics)
+}
+```
+
+After about an hour of computing models through backwards selection, the model with the lowest WAIC had 10 predictors, which are as follows:
+
+- "genre"
+- "duration_ms"         
+- "energy"              
+- "instrumentalness"   
+- "liveness"
+- "loudness"
+- "mode"
+- "genre * energy"     
+- "genre * speechiness"
+- "genre * duration_ms"
+
+And most of these are what we expected, as they were the significant predictors from the full model.
+
+Let's create a new, reduced model with these predictors.
+
+```{r echo = T, results = 'hide'}
+cols_reduced <- cbind(
+  "genre",
+  "duration_ms",         
+  "energy",              
+  "instrumentalness",   
+  "liveness",
+  "loudness",
+  "mode",
+  "genre * energy",     
+  "genre * speechiness",
+  "genre * duration_ms"
+)
+
+form_reduced <- as.formula(paste0("popularity ~ ", paste(cols_reduced, collapse = "+")))
+fit_reduced <- stan_betareg(form_reduced,
+
+  data = data_norm, 
+  link = "logit", 
+  algorithm = "sampling"
+)
+```
+
+```{r}
+summary(fit_reduced, digits = 4, probs = c(0.05, 0.95))
+```
+
+In the reduced model, we can see that all of the predictors are significant (do not contain 0 in interval) except for instrumentalness and mode. It's interesting that the backwards selection kept these in. Perhaps using a different metric besides WAIC would not have kept these.
+
+## Conclusion
 
 Predicting song popularity is difficult...
 
 Talk about how model only good at predicting data inside the data domain (e.g. popular artists).
+
