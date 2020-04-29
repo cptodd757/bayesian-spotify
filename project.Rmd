@@ -1,14 +1,15 @@
 ---
 title: "Bayesian Spotify"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 header-includes:
 - \usepackage{amsmath}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.width=6, fig.height=4) 
 ```
 
 # Modeling Song Popularity with Bayesian Linear Regression on Spotify Data
@@ -42,14 +43,14 @@ Metadata:
 Basic predictors:
 
 - Genre: the overarching genre to which the song belongs (rap, pop, or EDM)
-- Key: the key signature of the song (0 through 11, with 0 corresponding to C), with Mode
+- Key: the key signature of the song (0 through 11, with 0 corresponding to C), used with Mode
 - Mode: whether or not a song is in a “major” (1) or “minor” (0) key 
 - Time signature: the time signature of the song; e.g., 2, 3, 4, or 0, if there is no discernible one
 - Duration: duration of the song in milliseconds.
 - Tempo: the song’s number of beats per minute 
 - Loudness: the average decibel level of the song
 
-Advanced features (calculated by Spotify’s algorithms behind-the-scenes:
+Advanced features (calculated by Spotify’s algorithms behind-the-scenes):
 
 - Acousticness: how much a song sounds like it was produced with real, non-electronic instruments
 - Danceability: how suitable a song is for dancing, based on rhythms and tempo stability
@@ -62,7 +63,7 @@ Advanced features (calculated by Spotify’s algorithms behind-the-scenes:
 
 ## Analysis
 
-```{r echo=FALSE, results = 'hide'}
+```{r echo=FALSE, results=FALSE, message=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(rstan)
@@ -72,7 +73,7 @@ library(performance)
 ```
 
 
-```{r results = 'hide'}
+```{r results=FALSE, message=FALSE}
 data <- read_csv("data/Travis Scott_Drake_DaBaby_Kanye West_Offset_Lil Skies_Ed Sheeran_Ariana Grande_Billie Eilish_Jonas Brothers_Camila Cabello_Harry Styles_ILLENIUM_Diplo_Tiësto_Marshmello_Flume_Avicii_2019.csv")
 ```
 
@@ -99,14 +100,14 @@ data <- data %>% mutate(
 )
 ```
 
-```{r echo=FALSE, results = 'hide'}
+```{r echo=FALSE, results=FALSE, message=FALSE}
 data %>% select("artist") %>% unique()
 ```
 
-```{r echo=FALSE, results = 'hide'}
+```{r echo=FALSE, results=FALSE, message=FALSE}
 data %>% filter(is.na(genre))
 ```
-```{r echo=FALSE, results = 'hide'}
+```{r echo=FALSE, results=FALSE, message=FALSE}
 data %>% select(genre) %>% unique()
 ```
 
@@ -166,13 +167,13 @@ data %>%
     ggtitle("Distributions of Categorical Predictor Variables")
 ```
 
-Many of the continuous predictor variables follow approximately normal distributions, such as duration and danceability.  Others, like liveness, acousticness, instrumentalness, and speechiness, appear much more skewed right--this makes sense because the tracks we selected are songs from studio albums, in genres that rely heavily on electronic music production.  As a result, before fitting our model, we will log-transform these variables to create more normal-looking distributions.  Our response variable, popularity, is unimodally distributed over the domain [0, 1], so we have chosen to use a Beta distribution to model it.
+Many of the continuous predictor variables follow approximately normal distributions, such as duration and danceability. Others, like liveness, acousticness, instrumentalness, and speechiness, appear much more skewed right--this makes sense because the tracks we selected are songs from studio albums, in genres that rely heavily on electronic music production. Our response variable, popularity, is unimodally distributed over the domain [0, 1], so we have chosen to use a Beta distribution to model it.
 
 Three of our four categorical variables (artist, genre, and mode) appear relatively uniformly distributed, meaning we have a good balance of songs with respect to those categories.  Time signature, on the other hand, takes a value of 4 for almost all of the observations (this is consistent with all music in general), so it will not be useful to include as a predictor in the model.
 
 Next, we observe the individual correlations between each predictor variable and popularity.
 
-```{r}
+```{r fig.width=3, fig.height=2}
 
 dontgraph = c('X1','popularity','id','album','type','title')
 
@@ -196,13 +197,13 @@ for (i in colnames(data))
 }
 ```
 
-Based on these plots, there appear to be some weak correlations between popularity and predictor variables, such as the positive correlation with danceability and the negative correlation with energy.  There also appears to be a difference in overall popularity between edm and the other two genres.  Although the correlations appear small in these graphs, we predict that they will be non-trivial, and that interesting interaction effects between genre and other variables will also account for variation in popularity.  
+Based on these plots, there appear to be some weak correlations between popularity and predictor variables, such as the positive correlation with danceability and the negative correlation with energy. There also appears to be a difference in overall popularity between edm and the other two genres. Although the correlations appear small in these graphs, we predict that they will be non-trivial in the model, and that interesting interaction effects between genre and other variables will also account for variation in popularity.  
 
 ## Model
 	
 As stated, we have fitted a Bayesian generalized linear model to our data.  In keeping with the tradition of Bayesian regression, we have set a multivariate normal prior for the regression coefficients.  As recommended by the RSTAN documentation for Bayesian modeling, we have let this prior be expressed as $\boldsymbol{\beta} \sim \text{MVN}(\boldsymbol{0}, \sigma I)$, where $\sigma$ is the sample standard deviation of our response variable, popularity.  The sampling distribution we selected to model popularity is a Beta distribution, because our exploratory data analysis revealed that the variable exhibits a unimodal distribution bound between 0 and 1.
   
-Per recommendations from notes on Bayesian GLM’s from a University of Washington graduate course, we have made a couple of additional model choices (TODO: make a citation: https://jrnold.github.io/bayesian_notes/index.html).  Regarding the sampling distribution, we let $[Y | \theta] \sim Beta(\theta \phi, (1 - \theta)\phi)$, where $\phi$ is also modeled using a normal prior. Furthermore, we have decided to use the logit function as our link function, so that $\text{logit}(\theta) = X^T\boldsymbol{\beta}$, because the parameters to our Beta sampling distribution must be non-negative, and the logit allows for a more intuitive interpretation than the probit link function. 
+Per recommendations from notes on Bayesian GLM’s from a University of Washington graduate course, we have made a couple of additional model choices (More info available at: https://jrnold.github.io/bayesian_notes/index.html).  Regarding the sampling distribution, we let $[Y | \theta] \sim \text{Beta}(\theta \phi, (1 - \theta)\phi)$, where $\phi$ is also modeled using a normal prior. Furthermore, we have decided to use the logit function as our link function, so that $\text{logit}(\theta) = X^T\boldsymbol{\beta}$, because the parameters to our Beta sampling distribution must be non-negative, and the logit allows for a more intuitive interpretation than the probit link function. 
 
 ```{r echo = T, results = 'hide'}
 cols <- cbind(
@@ -256,9 +257,9 @@ So, now that our model has been fit with `stan_betareg` (using a `logit` link), 
 It's important to keep in mind that these coefficients are transformed through our `logit` link, so we need to take the `inv.logit` (found in library `gtools`) to calculate the actual per-unit change in `popularity`. The sign/direction of popularity change, however, remains the same whether transformed or not.
 
 
-First, let's take a look at our trace plots to see if we're sampling fairly efficiently, as opposed to getting stuck in any local optimum.
+First, we will take a look at our trace plots to see if we're sampling fairly efficiently, as opposed to getting stuck in any local optimum.
 
-```{r}
+```{r fig.width=12, fig.height=8}
 stan_trace(fit, pars=c("(Intercept)",
 "genreedm",
 "genrerap",
@@ -286,8 +287,7 @@ stan_trace(fit, pars=c("(Intercept)",
 "(phi)"))
 ```
 
-Everything here looks fairly random.
-
+Everything here looks fairly random and well mixed.
 
 Next, we'll do a posterior predictive check to see how sampled random predicted popularities line up with our real popularities.
 
@@ -295,11 +295,11 @@ Next, we'll do a posterior predictive check to see how sampled random predicted 
 pp_check(fit)
 ```
 
-Nothing too surprising here. We're predicting with a beta distribution, and it looks similiar, but of course predicting popularity is difficult.
+Nothing too surprising here. We're predicting with a beta distribution, and it looks similiar, but of course predicting popularity is difficult. It seems to be capturing the tails more so than the peak. This is a result of the learned Phi variable in the model.
 
 ###  Key Findings
 
-- Since we mean centered our data, we can interpret our intercepts as the popularity metric of a song with average attributes for all predictors. For a pop song, our mean popularity is `inv.logit(0.73613) = 67.6%`, a rap song is  `inv.logit(0.73613 - 0.20453) = 62.9%`, and an edm song is `inv.logit(0.73613 -0.63032) = 52.6%`. And this makes sense. Pop is called pop for a reason, it's more popular. And as of right now, it seems like, on Spotify at least, rap music is more popular than edm on average. But of course, this is also dependent on our dataset and which artists we choose. In an ideal world, we would have every artist under all three genres. This is also why popularity is so high, even on all three,.. we've selectively chosen popular artists that most people will know. Thus, our model is only good at predicting popularity of songs of artists similiar to the ones we have chosen. Otherwise, we're outside of the domain.
+- Since we mean centered our data, we can interpret our intercepts as the popularity metric of a song with average attributes for all predictors. For a pop song, our mean popularity is `inv.logit(0.73613) = 67.6%`, a rap song is  `inv.logit(0.73613 - 0.20453) = 62.9%`, and an edm song is `inv.logit(0.73613 -0.63032) = 52.6%`. And this makes sense. Pop is called pop for a reason: it's more popular. And as of right now, it seems like, on Spotify at least, rap music is more popular than edm on average. But of course, this is also dependent on our dataset and which artists we choose. In an ideal world, we would have every artist under all three genres. This is also why popularity is so high, even on all three --- we've selectively chosen popular artists that most people will know. Thus, our model is only good at predicting popularity of songs of artists similiar to the ones we have chosen. Otherwise, we're outside of the domain.
 
 - Loudness itself is not a significant predictor, until it is paired with edm music. The coefficient is positive, which implies that the louder the song (in the context of edm genre), the more popular the song may be.
 
@@ -307,12 +307,11 @@ Nothing too surprising here. We're predicting with a beta distribution, and it l
 
 - Duration, at the baseline, has a positive coefficient, which implies that the longer a song is, the more popular it may be. This is only the case when looking at the `pop` genre, however. When we look at `rap` and `edm`, we find that the coefficient is negative, thus in these genres, listeners seem to lose interest as the song becomes longer (i.e. lower popularity).
 
-- Although mode is not a significant predictor, it is definitely weighted to one side. A mode of 0 implies the song is in minor key, while a mode of 1 implies the song is in major key. And the weighting is towards... minor! Thus, all else equal, our model will predict a song to have higher popularity if it is in minor key. We can infer, then, that people prefer songs that sound sad. But again, this is only a slight, and seemingly insignificant predictive change, according to quantiles. 
-
+- Although mode is not a significant predictor, it is definitely weighted to one side. A mode of 0 implies the song is in minor key, while a mode of 1 implies the song is in major key. And the weighting is towards... minor! Thus, all else equal, our model will predict a song to have higher popularity if it is in minor key. If it were significant, we could potentially infer that people prefer songs that sound sad. But again, this is only a slight, and seemingly insignificant predictive change, according to quantiles. 
 
 ### Model Tuning
 
-Since some of these variables seem to be noticeably more effective at predicting than others, we decided it would be worthwhile to do backwards selection in order to create a reduced model. We chose to use the WAIC metric, an extension of the AIC metric that we used in 210, that works well with the rstan regression library.
+Since some of these variables seem to be noticeably more effective at predicting than others, we decided it would be worthwhile to do backwards selection in order to create a reduced model. We chose to use the WAIC metric, an extension of the AIC metric which we were taught in STA 210, that works well with the rstan regression library.
 
 ```{r eval=FALSE}
 pred_full <- cbind(
@@ -384,7 +383,7 @@ After about an hour of computing models through backwards selection, the model w
 
 And most of these are what we expected, as they were the significant predictors from the full model.
 
-Let's create a new, reduced model with these predictors.
+Next we will create a new, reduced model with these predictors.
 
 ```{r echo = T, results = 'hide'}
 cols_reduced <- cbind(
